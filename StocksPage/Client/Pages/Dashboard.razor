@@ -1,0 +1,92 @@
+﻿@page "/Dashboard"
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using cryptopage.Shared.DTOs
+
+@attribute [Authorize]
+@inject HttpClient Http
+@inject NavigationManager navigator
+
+<h1>Dashboard</h1>
+
+@if (!@areTickersRendered)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <SfAutoComplete TValue="string" TItem="Info" Placeholder="Select stock" DataSource="@Companies" PopupWidth="250px" PopupHeight="400px">
+    <AutoCompleteFieldSettings Value="Ticker">
+    </AutoCompleteFieldSettings>
+    <AutoCompleteEvents TValue="string" TItem="Info" ValueChange="@onChange"></AutoCompleteEvents>
+    </SfAutoComplete>
+
+@*    <table class="table">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var company in Companies)
+                {
+                    <tr>
+                        <td>@company.Ticker</td>
+                        <td>@company.Name</td>
+                    </tr>
+                }
+            </tbody>
+    </table>*@
+}
+
+@code {
+    public string? result { get; set; }
+    SearchGet? companySearch;
+
+    public class Info{
+        public string Ticker { get; set; }
+        public string Name { get; set; }
+    }
+
+    public List<Info> Companies = new List<Info>{};
+
+    bool areTickersRendered = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            companySearch = await Http.GetFromJsonAsync<SearchGet>("https://api.polygon.io/v3/reference/tickers?market=stocks&active=true&sort=ticker&order=asc&limit=1000&apiKey=Y2_T2LVdQtcQfcRydpbnQWtSV0suB4P_");
+
+            while(companySearch.status.Equals("OK")) {
+
+                companySearch = await Http.GetFromJsonAsync<SearchGet>(companySearch.next_url + "&apiKey=Y2_T2LVdQtcQfcRydpbnQWtSV0suB4P_");
+
+                await Task.Delay(2000);
+
+                foreach(var company in companySearch.results)
+                {
+                    Companies.Add(new Info
+                    {
+                        Ticker = company.ticker,
+                        Name = company.name
+                    });
+                }
+            }
+
+            areTickersRendered = true;
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+
+    }
+
+    public void onChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, Info> args) 
+    { 
+        navigator.NavigateTo("/Details/" + args.Value);
+    } 
+}
