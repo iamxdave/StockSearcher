@@ -1,8 +1,29 @@
 ﻿@page "/"
 
+@using StocksPage.Client.Services
+@using StocksPage.Shared.DTOs
+@inject HttpClient Http
+
 <PageTitle>Home</PageTitle>
 
 <main>
     <div class="title">Welcome to the <span style="color:#301a4a;">stocks</span> market value checker!</div>
-    The application is based on data from the cryptocurrency market and allows users to see the fluctuations of individual currencies on the market.
+    The application is based on data from the stocks market and allows users to see the fluctuations of individual currencies on the market.
 </main>
+
+@if(tickers == null || !tickers.Any())
+{
+    <p><em>Page is being loaded for the first time. Gathering data about tickers. Please wait.</em></p>
+}
+
+@code {
+    [Inject]
+    public IHttpStockService stockService { get; set; }
+
+    private IEnumerable<TickerNameGet> tickers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tickers = await stockService.GetTickerNames();
+    }
+}

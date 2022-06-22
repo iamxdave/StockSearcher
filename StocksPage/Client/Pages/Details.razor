@@ -1,7 +1,9 @@
 ﻿@page "/Details/{stock}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-@using cryptopage.Shared.DTOs
 @using Microsoft.AspNetCore.Authorization
+@using StocksPage.Client.Services
+@using StocksPage.Shared.DTOs
+@using StocksPage.Shared.DTOs.PolygonAPI
 
 @*@attribute [Authorize]*@
 @inject HttpClient Http
@@ -13,7 +15,7 @@
 <h1>Dashboard</h1>
 <h2>@stock</h2>
 
-@if (chartGet == null || companyGet == null)
+@if (tickerChart == null || tickerDetail == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -30,15 +32,15 @@ else
 				<DashboardLayoutPanel Row=1 SizeX=2 SizeY=2>
 					<HeaderTemplate><div>Icon</div></HeaderTemplate>
 
-					<ContentTemplate><div><img src="@info.LogoUrl" alt="@stock logo"/></div></ContentTemplate>
+					<ContentTemplate><div><img src="@tickerDetail.LogoUrl" alt="@stock logo"/></div></ContentTemplate>
 				</DashboardLayoutPanel>
 				<DashboardLayoutPanel Row=1 SizeX=7 SizeY=1>
 					<HeaderTemplate><div>Name</div></HeaderTemplate>
 
 					<ContentTemplate>
                         <div>
-                            @info.Name
-                            <SfButton IconCss="e-icons e-check-small" Content="Add to watchlist" IconPosition="IconPosition.Right" @OnClick="(() => addToWatchlist())"></SfButton>
+                            @tickerDetail.Name @tickerDetail.Ticker
+                            <SfButton IconCss="e-icons e-check-small" Content="Add to watchlist" IconPosition="IconPosition.Right"></SfButton>
                         </div>
                     </ContentTemplate>
 				</DashboardLayoutPanel>
@@ -57,10 +59,10 @@ else
                                         </ChildContent>
                                         <ContentTemplate>
                                             <div>
-                                                Country: @info.Country
-                                                Type: @info.Type
-                                                Currency: @info.CurrencyName
-                                                Cik: @info.Cik
+                                                SicDescription: @tickerDetail.SicDescription
+                                                Country: @tickerDetail.Country
+                                                Currency: @tickerDetail.Currency
+                                                Cik: @tickerDetail.Cik
                                             </div>
                                         </ContentTemplate>
                                     </TabItem>
@@ -72,10 +74,9 @@ else
                                         </ChildContent>
                                         <ContentTemplate>
                                              <div>
-                                                 Description: @info.Description
-                                                 SicDescription: @info.SicDescription
-                                                 Number of employees: @info.Total_employees
-                                                 Homepage: @info.Homepage
+                                                 Description: @tickerDetail.Description
+                                                 Number of employees: 
+                                                 Homepage: @tickerDetail.Homepage
                                             </div>
                                         </ContentTemplate>
                                     </TabItem>
@@ -104,7 +105,7 @@ else
 										</StockChartAxisCrosshairTooltip>
 									</StockChartPrimaryYAxis>
 							<StockChartSeriesCollection>
-								<StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@chart"
+								<StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@tickerChart"
                                 XName="Date" High="High" Low="Low" Open="Open" Close="Close" Volume="Volume">
 								</StockChartSeries>
 							</StockChartSeriesCollection>
@@ -144,86 +145,20 @@ else
     [Parameter]
     public string stock { get; set; }
 
-    private DetailsGet? companyGet;
-    private ChartGet? chartGet;
+    [Inject]
+    public IHttpStockService stockService { get; set; }
 
-    private DateTime currentDate = DateTime.Now;
-    private DateTime fourMonthBeforeDate = DateTime.Now.AddMonths(-4);
-
-    private class Point
-    {
-        public DateTime Date { get; set; }
-        public double Open { get; set; }
-        public double High { get; set; }
-        public double Low { get; set; }
-        public double Close { get; set; }
-        public double Volume { get; set; }
-    }
-
-    private class Info
-    {
-        public string Name { get; set; }
-
-        public string Country { get; set; }
-        public string Type { get; set; }
-        public string CurrencyName { get; set; }
-        public string Cik { get; set; }
-
-        public string Description { get; set; }
-        public string SicDescription { get; set; }
-        public int Total_employees { get; set; }
-        public string Homepage { get; set; }
-
-        public string LogoUrl { get; set; }
-    }
-
-    private List<Point> chart = new List<Point>{};
-
-    private Info info;
+    private TickerDetailGet tickerDetail;
+    private IEnumerable<TickerChartGet> tickerChart = new List<TickerChartGet>{};
 
     protected override async Task OnInitializedAsync()
     {
-
-        string now = currentDate.ToString("yyyy-MM-dd");
-        string fourMonthBefore = fourMonthBeforeDate.ToString("yyyy-MM-dd");
-
         try
         {
-            companyGet = await Http.GetFromJsonAsync<DetailsGet>($"https://api.polygon.io/v3/reference/tickers/{stock}?apiKey=Y2_T2LVdQtcQfcRydpbnQWtSV0suB4P_");
-            chartGet = await Http.GetFromJsonAsync<ChartGet>($"https://api.polygon.io/v2/aggs/ticker/{stock}/range/1/day/{fourMonthBefore}/{now}?adjusted=true&sort=asc&limit=120&apiKey=Y2_T2LVdQtcQfcRydpbnQWtSV0suB4P_");
+            var arg = stock.ToString();
 
-            
-            info = new Info
-            {
-                Name = companyGet.results.name,
-                Country = companyGet.results.locale,
-                Type = companyGet.results.type,
-                CurrencyName = companyGet.results.currency_name,
-                Cik = companyGet.results.cik,
-
-                Description = companyGet.results.description,
-                SicDescription = companyGet.results.sic_description,
-                Total_employees = companyGet.results.total_employees,
-                Homepage = companyGet.results.homepage_url,
-                LogoUrl = companyGet.results.branding.logo_url + "?apiKey=Y2_T2LVdQtcQfcRydpbnQWtSV0suB4P_"
-            };
-
-            var date = fourMonthBeforeDate;
-            foreach(var point in chartGet.results)
-            {
-                chart.Add(new Point
-                {
-                    Date = date,
-                    Open = point.o,
-                    High = point.h,
-                    Low = point.l,
-                    Close = point.c,
-                    Volume = point.v
-                });
-
-                date = date.AddDays(1);
-            }
-
+            tickerDetail = await stockService.GetTickerDetail(arg);
+            tickerChart = await stockService.GetTickerChart(arg);
         }
         catch (AccessTokenNotAvailableException exception)
         {

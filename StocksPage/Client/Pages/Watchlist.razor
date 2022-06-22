@@ -1,5 +1,101 @@
-﻿<h3>Watchlist</h3>
+﻿@page "/Watchlist"
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Microsoft.AspNetCore.Authorization
+@using StocksPage.Client.Services
+@using StocksPage.Shared.DTOs
+
+@inject HttpClient Http
+@inject IJSRuntime js
+
+<h3>Watchlist</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th @onclick="@(() => Sort("LogoUrl"))">Logo</th>
+            <th @onclick="@(() => Sort("Ticker"))">Ticker</th>
+            <th @onclick="@(() => Sort("Name"))">Name</th>
+            <th @onclick="@(() => Sort("Country"))">Country</th>
+            <th @onclick="@(() => Sort("Currency"))">Currency</th>
+            <th @onclick="@(() => Sort("Cik"))">Cik</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach(var ticker in WatchlistTickerDetails)
+    {
+        <tr>
+            <td><img src="@ticker.LogoUrl" alt="@(ticker.Ticker) logo"/></td>
+            <td>@ticker.Ticker</td>
+            <td>@ticker.Name</td>
+            <td>@ticker.Country</td>
+            <td>@ticker.Currency</td>
+            <td>@ticker.Cik</td>
+            <td class="last--column">
+                <button class="delete--btn" @onclick="(() => DeleteTickerDetailFromWatchlist(ticker.Ticker))">X</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
 
 @code {
+    [Inject]
+    public IHttpStockService stockService { get; set; }
+
+    public IEnumerable<WatchlistTickerDetailGet> WatchlistTickerDetails = new List<WatchlistTickerDetailGet> { };
+
+    public KeyValuePair<string, bool> ColumnSort { get; set; } = new KeyValuePair<string, bool>("", false);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            WatchlistTickerDetails = await stockService.GetTickerDetailsFromWatchlist(1);
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+    private void Sort(string columnName)
+    {
+        if(ColumnSort.Key != columnName)
+        {
+            ColumnSort = new KeyValuePair<string, bool>(columnName, false);
+        } else
+        {
+            ColumnSort = new KeyValuePair<string, bool>(columnName, !ColumnSort.Value);
+        }
+
+        if (ColumnSort.Value)
+        {
+            SortDesc(columnName);
+        } else
+        {
+            SortAsc(columnName);
+        }
+    }
+
+    private void SortAsc(string columnName)
+    {
+        WatchlistTickerDetails = WatchlistTickerDetails.OrderBy(e => e.GetType().GetProperty(columnName).GetValue(e, null)).ToList();
+    }
+
+    private void SortDesc(string columnName)
+    {
+        WatchlistTickerDetails = WatchlistTickerDetails.OrderByDescending(e => e.GetType().GetProperty(columnName).GetValue(e, null)).ToList();
+    }
+
+    private async Task DeleteTickerDetailFromWatchlist(string ticker)
+    {
+        var result = await js.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (result)
+        {
+            await stockService.DeleteDetailFromWatchlist(ticker);
+        }
+    }
+
 
 }

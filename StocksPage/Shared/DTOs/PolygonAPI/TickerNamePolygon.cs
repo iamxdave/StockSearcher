@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cryptopage.Shared.DTOs
+namespace StocksPage.Shared.DTOs.PolygonAPI
 {
-    public class SearchGet
+    public class TickerNamePolygon
     {
-        public CompanyGet[] results { get; set; }
+        public TNInfo[] results { get; set; }
         public string status { get; set; }
         public string request_id { get; set; }
         public int count { get; set; }
@@ -16,7 +16,7 @@ namespace cryptopage.Shared.DTOs
 
 
     }
-    public class CompanyGet
+    public class TNInfo
     {
         public string ticker { get; set; }
         public string name { get; set; }

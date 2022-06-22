@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cryptopage.Shared.DTOs
+namespace StocksPage.Shared.DTOs.PolygonAPI
 {
-    public class ChartGet
+    public class TickerChartPolygon
     {
         public string ticker { get; set; }
         public int queryCount { get; set; }
         public int resultsCount { get; set; }
         public bool adjusted { get; set; }
-        public PointGet[] results { get; set; }
+        public TCPoint[] results { get; set; }
         public string status { get; set; }
         public string request_id { get; set; }
         public int count { get; set; }
     }
 
-    public class PointGet
+    public class TCPoint
     {
         public float v { get; set; }
         public float vw { get; set; }

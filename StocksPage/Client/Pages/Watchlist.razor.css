@@ -1,0 +1,60 @@
+﻿main {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+    align-items: flex-end;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.entry {
+    padding: 1rem;
+}
+
+#return--btn {
+    border: none;
+    color: white;
+    background: blue;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    margin-top: 1.3rem;
+    transition: all .3s ease;
+}
+
+    #return--btn:hover {
+        transform: scale(1.1);
+    }
+
+label {
+    margin-right: 1.3rem;
+}
+
+img {
+    margin-top: 1rem;
+    width: 10rem;
+    align-self: center;
+    transition: all .3s ease;
+}
+
+    img:hover {
+        animation: animation 2s linear infinite;
+    }
+
+@keyframes animation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

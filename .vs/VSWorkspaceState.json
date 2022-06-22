@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\StocksPage",
+    "\\StocksPage\\Server",
+    "\\StocksPage\\Server\\Areas",
+    "\\StocksPage\\Server\\Areas\\Identity",
+    "\\StocksPage\\Server\\Areas\\Identity\\Pages",
+    "\\StocksPage\\Server\\Areas\\Identity\\Pages\\Shared"
+  ],
+  "SelectedNode": "\\StocksPage\\Server\\Areas\\Identity\\Pages\\Shared\\_LoginPartial.cshtml",
+  "PreviewInSolutionExplorer": false
+}

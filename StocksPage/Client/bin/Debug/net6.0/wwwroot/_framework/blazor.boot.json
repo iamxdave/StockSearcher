@@ -218,15 +218,15 @@
       "mscorlib.dll": "sha256-zNVxhWqav+Wvwc8mjOqsl40bhVLw78MhgITrphqoROc=",
       "netstandard.dll": "sha256-yQ7oiuGXRX47V21EibXbfTPXOkJGOgCJhW9YF6e4hw0=",
       "System.Private.CoreLib.dll": "sha256-Ug2\/rd8Ck7Dls6uaZNmrqc7EvE8f41iX96qdX57LStQ=",
-      "StocksPage.Shared.dll": "sha256-tEMXoH94WdZJqQqZAeDsvkS69FsfJBuR9CzW67TOQQQ=",
-      "StocksPage.Client.dll": "sha256-DBy08hZ6TK6Vs3wgofJrPRqf4dwDe3DuSGRHL88e8Ls="
+      "StocksPage.Shared.dll": "sha256-2HHlGBShNZJe2szEgqVi24lqBj7u4LANTlQ0rN4CM0w=",
+      "StocksPage.Client.dll": "sha256-L8B7LUZM+n5ilY378wyyr4cMDZFDuP5AY7CIvghLRwM="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "StocksPage.Shared.pdb": "sha256-ZS7tPmzAfjqWQMIrVk8x7565QbM44Ll+OU9NqdyDD1Q=",
-      "StocksPage.Client.pdb": "sha256-ocbBqsp8xDYrxLEHrMhCMz6KrQef5bJk2iJATSJoN5U="
+      "StocksPage.Shared.pdb": "sha256-HPun4a79UJ+T67gHgPNUUgQkznWqrHNc0sT8CJNZzNw=",
+      "StocksPage.Client.pdb": "sha256-B\/cQqx77kMROQx8huGCGaNIGyjyDrlO6C5wSBgwsI7Q="
     },
     "runtime": {
       "dotnet.6.0.6.7wxw0gmhde.js": "sha256-zJXgw\/tAzTVOXksPhtpZVT12vxHC7S9mQyBRM36dwD0=",

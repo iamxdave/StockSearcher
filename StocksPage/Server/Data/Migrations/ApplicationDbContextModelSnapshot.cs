@@ -6,414 +6,528 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StocksPage.Server.Data;
 
+#nullable disable
+
 namespace StocksPage.Server.Data.Migrations
 {
-	[DbContext(typeof(ApplicationDbContext))]
-	partial class ApplicationDbContextModelSnapshot : ModelSnapshot
-	{
-		protected override void BuildModel(ModelBuilder modelBuilder)
-		{
+    [DbContext(typeof(ApplicationDbContext))]
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    {
+        protected override void BuildModel(ModelBuilder modelBuilder)
+        {
 #pragma warning disable 612, 618
-			modelBuilder
-				.UseIdentityColumns()
-				.HasAnnotation("Relational:MaxIdentifierLength", 128)
-				.HasAnnotation("ProductVersion", "5.0.0-rc.1.20417.2");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "6.0.6")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-			modelBuilder.Entity("StocksPage.Server.Models.ApplicationUser", b =>
-				{
-					b.Property<string>("Id")
-						.HasColumnType("nvarchar(450)");
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-					b.Property<int>("AccessFailedCount")
-						.HasColumnType("int");
+            modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes", b =>
+                {
+                    b.Property<string>("UserCode")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("ConcurrencyStamp")
-						.IsConcurrencyToken()
-						.HasColumnType("nvarchar(max)");
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("Email")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
 
-					b.Property<bool>("EmailConfirmed")
-						.HasColumnType("bit");
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasMaxLength(50000)
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<bool>("LockoutEnabled")
-						.HasColumnType("bit");
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<DateTimeOffset?>("LockoutEnd")
-						.HasColumnType("datetimeoffset");
+                    b.Property<string>("DeviceCode")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("NormalizedEmail")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+                    b.Property<DateTime?>("Expiration")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
 
-					b.Property<string>("NormalizedUserName")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+                    b.Property<string>("SessionId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-					b.Property<string>("PasswordHash")
-						.HasColumnType("nvarchar(max)");
+                    b.Property<string>("SubjectId")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("PhoneNumber")
-						.HasColumnType("nvarchar(max)");
+                    b.HasKey("UserCode");
 
-					b.Property<bool>("PhoneNumberConfirmed")
-						.HasColumnType("bit");
+                    b.HasIndex("DeviceCode")
+                        .IsUnique();
 
-					b.Property<string>("SecurityStamp")
-						.HasColumnType("nvarchar(max)");
+                    b.HasIndex("Expiration");
 
-					b.Property<bool>("TwoFactorEnabled")
-						.HasColumnType("bit");
+                    b.ToTable("DeviceCodes", (string)null);
+                });
 
-					b.Property<string>("UserName")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+            modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.Key", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-					b.HasKey("Id");
+                    b.Property<string>("Algorithm")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-					b.HasIndex("NormalizedEmail")
-						.HasDatabaseName("EmailIndex");
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
 
-					b.HasIndex("NormalizedUserName")
-						.IsUnique()
-						.HasDatabaseName("UserNameIndex")
-						.HasFilter("[NormalizedUserName] IS NOT NULL");
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-					b.ToTable("AspNetUsers");
-				});
+                    b.Property<bool>("DataProtected")
+                        .HasColumnType("bit");
 
-			modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.DeviceFlowCodes", b =>
-				{
-					b.Property<string>("UserCode")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<bool>("IsX509Certificate")
+                        .HasColumnType("bit");
 
-					b.Property<string>("ClientId")
-						.IsRequired()
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<string>("Use")
+                        .HasColumnType("nvarchar(450)");
 
-					b.Property<DateTime>("CreationTime")
-						.HasColumnType("datetime2");
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
 
-					b.Property<string>("Data")
-						.IsRequired()
-						.HasMaxLength(50660)
-						.HasColumnType("nvarchar(max)");
+                    b.HasKey("Id");
 
-					b.Property<string>("Description")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.HasIndex("Use");
 
-					b.Property<string>("DeviceCode")
-						.IsRequired()
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.ToTable("Keys");
+                });
 
-					b.Property<DateTime?>("Expiration")
-						.IsRequired()
-						.HasColumnType("datetime2");
+            modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.PersistedGrant", b =>
+                {
+                    b.Property<string>("Key")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("SessionId")
-						.HasMaxLength(100)
-						.HasColumnType("nvarchar(100)");
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<string>("SubjectId")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<DateTime?>("ConsumedTime")
+                        .HasColumnType("datetime2");
 
-					b.HasKey("UserCode");
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnType("datetime2");
 
-					b.HasIndex("DeviceCode")
-						.IsUnique();
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasMaxLength(50000)
+                        .HasColumnType("nvarchar(max)");
 
-					b.HasIndex("Expiration");
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.ToTable("DeviceCodes");
-				});
+                    b.Property<DateTime?>("Expiration")
+                        .HasColumnType("datetime2");
 
-			modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.Key", b =>
-				{
-					b.Property<string>("Id")
-						.HasMaxLength(450)
-						.HasColumnType("nvarchar(450)");
+                    b.Property<string>("SessionId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-					b.Property<string>("Algorithm")
-						.IsRequired()
-						.HasMaxLength(100)
-						.HasColumnType("nvarchar(100)");
+                    b.Property<string>("SubjectId")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-					b.Property<DateTime>("Created")
-						.HasColumnType("datetime2");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-					b.Property<string>("Data")
-						.IsRequired()
-						.HasColumnType("nvarchar(max)")
-						.HasMaxLength(50660);
+                    b.HasKey("Key");
 
-					b.Property<bool>("DataProtected")
-						.HasColumnType("bit");
+                    b.HasIndex("ConsumedTime");
 
-					b.Property<bool>("IsX509Certificate")
-						.HasColumnType("bit");
+                    b.HasIndex("Expiration");
 
-					b.Property<string>("Use")
-						.HasMaxLength(450)
-						.HasColumnType("nvarchar(450)");
+                    b.HasIndex("SubjectId", "ClientId", "Type");
 
-					b.Property<int>("Version")
-						.HasColumnType("int");
+                    b.HasIndex("SubjectId", "SessionId", "Type");
 
-					b.HasKey("Id");
+                    b.ToTable("PersistedGrants", (string)null);
+                });
 
-					b.HasIndex("Use");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-					b.ToTable("Keys");
-				});
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
-			modelBuilder.Entity("Duende.IdentityServer.EntityFramework.Entities.PersistedGrant", b =>
-				{
-					b.Property<string>("Key")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.Property<string>("ClientId")
-						.IsRequired()
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.Property<DateTime?>("ConsumedTime")
-						.HasColumnType("datetime2");
+                    b.HasKey("Id");
 
-					b.Property<DateTime>("CreationTime")
-						.HasColumnType("datetime2");
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
 
-					b.Property<string>("Data")
-						.IsRequired()
-						.HasMaxLength(50660)
-						.HasColumnType("nvarchar(max)");
+                    b.ToTable("AspNetRoles", (string)null);
+                });
 
-					b.Property<string>("Description")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-					b.Property<DateTime?>("Expiration")
-						.HasColumnType("datetime2");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-					b.Property<string>("SessionId")
-						.HasMaxLength(100)
-						.HasColumnType("nvarchar(100)");
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("SubjectId")
-						.HasMaxLength(200)
-						.HasColumnType("nvarchar(200)");
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("Type")
-						.IsRequired()
-						.HasMaxLength(50)
-						.HasColumnType("nvarchar(50)");
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-					b.HasKey("Key");
+                    b.HasKey("Id");
 
-					b.HasIndex("ConsumedTime");
+                    b.HasIndex("RoleId");
 
-					b.HasIndex("Expiration");
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
 
-					b.HasIndex("SubjectId", "ClientId", "Type");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-					b.HasIndex("SubjectId", "SessionId", "Type");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-					b.ToTable("PersistedGrants");
-				});
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-				{
-					b.Property<string>("Id")
-						.HasColumnType("nvarchar(450)");
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("ConcurrencyStamp")
-						.IsConcurrencyToken()
-						.HasColumnType("nvarchar(max)");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-					b.Property<string>("Name")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+                    b.HasKey("Id");
 
-					b.Property<string>("NormalizedName")
-						.HasMaxLength(256)
-						.HasColumnType("nvarchar(256)");
+                    b.HasIndex("UserId");
 
-					b.HasKey("Id");
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
 
-					b.HasIndex("NormalizedName")
-						.IsUnique()
-						.HasDatabaseName("RoleNameIndex")
-						.HasFilter("[NormalizedName] IS NOT NULL");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-					b.ToTable("AspNetRoles");
-				});
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-				{
-					b.Property<int>("Id")
-						.ValueGeneratedOnAdd()
-						.HasColumnType("int")
-						.UseIdentityColumn();
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("ClaimType")
-						.HasColumnType("nvarchar(max)");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-					b.Property<string>("ClaimValue")
-						.HasColumnType("nvarchar(max)");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
-					b.Property<string>("RoleId")
-						.IsRequired()
-						.HasColumnType("nvarchar(450)");
+                    b.HasIndex("UserId");
 
-					b.HasKey("Id");
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
 
-					b.HasIndex("RoleId");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-					b.ToTable("AspNetRoleClaims");
-				});
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-				{
-					b.Property<int>("Id")
-						.ValueGeneratedOnAdd()
-						.HasColumnType("int")
-						.UseIdentityColumn();
+                    b.HasKey("UserId", "RoleId");
 
-					b.Property<string>("ClaimType")
-						.HasColumnType("nvarchar(max)");
+                    b.HasIndex("RoleId");
 
-					b.Property<string>("ClaimValue")
-						.HasColumnType("nvarchar(max)");
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
 
-					b.Property<string>("UserId")
-						.IsRequired()
-						.HasColumnType("nvarchar(450)");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-					b.HasKey("Id");
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-					b.HasIndex("UserId");
+                    b.Property<string>("Name")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-					b.ToTable("AspNetUserClaims");
-				});
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-				{
-					b.Property<string>("LoginProvider")
-						.HasMaxLength(128)
-						.HasColumnType("nvarchar(128)");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
-					b.Property<string>("ProviderKey")
-						.HasMaxLength(128)
-						.HasColumnType("nvarchar(128)");
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
 
-					b.Property<string>("ProviderDisplayName")
-						.HasColumnType("nvarchar(max)");
+            modelBuilder.Entity("StocksPage.Server.Models.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-					b.Property<string>("UserId")
-						.IsRequired()
-						.HasColumnType("nvarchar(450)");
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
 
-					b.HasKey("LoginProvider", "ProviderKey");
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
-					b.HasIndex("UserId");
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.ToTable("AspNetUserLogins");
-				});
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-				{
-					b.Property<string>("UserId")
-						.HasColumnType("nvarchar(450)");
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
 
-					b.Property<string>("RoleId")
-						.HasColumnType("nvarchar(450)");
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
 
-					b.HasKey("UserId", "RoleId");
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.HasIndex("RoleId");
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.ToTable("AspNetUserRoles");
-				});
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-				{
-					b.Property<string>("UserId")
-						.HasColumnType("nvarchar(450)");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("LoginProvider")
-						.HasMaxLength(128)
-						.HasColumnType("nvarchar(128)");
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
 
-					b.Property<string>("Name")
-						.HasMaxLength(128)
-						.HasColumnType("nvarchar(128)");
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
 
-					b.Property<string>("Value")
-						.HasColumnType("nvarchar(max)");
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
 
-					b.HasKey("UserId", "LoginProvider", "Name");
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
-					b.ToTable("AspNetUserTokens");
-				});
+                    b.HasKey("Id");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-				{
-					b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-						.WithMany()
-						.HasForeignKey("RoleId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
-				});
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-				{
-					b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
-						.WithMany()
-						.HasForeignKey("UserId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
-				});
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-				{
-					b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
-						.WithMany()
-						.HasForeignKey("UserId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
-				});
+                    b.ToTable("AspNetUsers", (string)null);
+                });
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-				{
-					b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-						.WithMany()
-						.HasForeignKey("RoleId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
+            modelBuilder.Entity("StocksPage.Server.Models.TickerDetail", b =>
+                {
+                    b.Property<int>("IdTickerDetail")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-					b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
-						.WithMany()
-						.HasForeignKey("UserId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
-				});
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTickerDetail"), 1L, 1);
 
-			modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-				{
-					b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
-						.WithMany()
-						.HasForeignKey("UserId")
-						.OnDelete(DeleteBehavior.Cascade)
-						.IsRequired();
-				});
+                    b.Property<string>("Cik")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Currency")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Homepage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("IdWatchlistTickerDetail")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LogoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SicDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ticker")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalEmployees")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdTickerDetail");
+
+                    b.HasIndex("IdWatchlistTickerDetail");
+
+                    b.ToTable("TickerDetail", (string)null);
+                });
+
+            modelBuilder.Entity("StocksPage.Server.Models.TickerName", b =>
+                {
+                    b.Property<int>("IdTickerName")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTickerName"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ticker")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdTickerName");
+
+                    b.ToTable("TickerName", (string)null);
+                });
+
+            modelBuilder.Entity("StocksPage.Server.Models.WatchlistTickerDetail", b =>
+                {
+                    b.Property<int>("IdWatchlistTickerDetail")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdWatchlistTickerDetail"), 1L, 1);
+
+                    b.HasKey("IdWatchlistTickerDetail");
+
+                    b.ToTable("WatchlistTickerDetail", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            IdWatchlistTickerDetail = 1
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("StocksPage.Server.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("StocksPage.Server.Models.TickerDetail", b =>
+                {
+                    b.HasOne("StocksPage.Server.Models.WatchlistTickerDetail", "WatchlistTickerDetail")
+                        .WithMany("TickerDetails")
+                        .HasForeignKey("IdWatchlistTickerDetail")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("WatchlistTickerDetail");
+                });
+
+            modelBuilder.Entity("StocksPage.Server.Models.WatchlistTickerDetail", b =>
+                {
+                    b.Navigation("TickerDetails");
+                });
 #pragma warning restore 612, 618
-		}
-	}
+        }
+    }
 }

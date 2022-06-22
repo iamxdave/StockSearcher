@@ -910,3 +910,4 @@ C:\Users\Dawid\source\repos\StocksPage\StocksPage\Client\obj\Debug\net6.0\build-
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Client\obj\Debug\net6.0\build-gz\frShMe1v.gz
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Client\obj\Debug\net6.0\build-gz\LFxujbjC.gz
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Client\obj\Debug\net6.0\build-gz\lgnfQnsA.gz
+C:\Users\Dawid\source\repos\StocksPage\StocksPage\Client\obj\Debug\net6.0\scopedcss\Pages\Watchlist.razor.rz.scp.css
