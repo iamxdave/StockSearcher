@@ -1,6 +1,5 @@
 # StockSearcher
 ![image](https://user-images.githubusercontent.com/74014874/175778658-35526d3c-f767-4bec-9fe9-45e0ac93ada8.png)
-![image](https://user-images.githubusercontent.com/74014874/175778673-aaff284f-d12e-44a7-ae2c-9c3dbcd8df0d.png)
 ![image](https://user-images.githubusercontent.com/74014874/175778698-e20f28e9-9fde-421b-87fc-4de8bfd7dff8.png)
 ![image](https://user-images.githubusercontent.com/74014874/175778725-eb5f78c4-1300-4917-bb46-ce77a693d401.png)
 ![image](https://user-images.githubusercontent.com/74014874/175778742-d4a7fc6f-7b45-4c2b-a1bf-2860b5781b30.png)
