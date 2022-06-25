@@ -24,13 +24,16 @@ namespace StocksPage.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TickerNameGet>> GetTickerNames()
+        public async Task<IEnumerable<TickerNameGet>>? GetTickerNames()
         {
             var tickers = _service.GetTickerNames();
 
             if (tickers == null || !tickers.Any())
             {
                 var newTickers = await _httpClient.GetFromJsonAsync<TickerNamePolygon>("https://api.polygon.io/v3/reference/tickers?market=stocks&active=true&sort=ticker&order=asc&limit=1000&apiKey=" + _configuration.GetValue<string>("PolygonAPIKey"));
+
+                if (newTickers == null || newTickers.results == null || !newTickers.results.Any())
+                    return Enumerable.Empty<TickerNameGet>();
 
                 using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
                 {
@@ -58,7 +61,7 @@ namespace StocksPage.Server.Controllers
 
                     scope.Complete();
                 }
-
+                await _service.SaveChangesAsync();
             }
 
             return _service.GetTickerNames().Select(e => new TickerNameGet

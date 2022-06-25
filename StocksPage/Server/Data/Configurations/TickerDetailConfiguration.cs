@@ -11,21 +11,18 @@ namespace StocksPage.Server.Data.Configurations
             builder.ToTable("TickerDetail");
             builder.HasKey(e => e.IdTickerDetail);
 
-            builder.Property(e => e.LogoUrl).IsRequired();
+            builder.Property(e => e.LogoUrl);
             builder.Property(e => e.Ticker).IsRequired();
             builder.Property(e => e.Name).IsRequired();
-            builder.Property(e => e.SicDescription).IsRequired();
-            builder.Property(e => e.Country).IsRequired();
-            builder.Property(e => e.Currency).IsRequired();
-            builder.Property(e => e.Cik).IsRequired();
-            builder.Property(e => e.Description).IsRequired();
-            builder.Property(e => e.TotalEmployees).IsRequired();
-            builder.Property(e => e.Homepage).IsRequired();
+            builder.Property(e => e.SicDescription);
+            builder.Property(e => e.Country);
+            builder.Property(e => e.Currency);
+            builder.Property(e => e.Cik);
+            builder.Property(e => e.Description);
+            builder.Property(e => e.TotalEmployees);
+            builder.Property(e => e.Homepage);
 
-            builder.HasOne(e => e.WatchlistTickerDetail)
-                .WithMany(e => e.TickerDetails)
-                .HasForeignKey(e => e.IdWatchlistTickerDetail)
-                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

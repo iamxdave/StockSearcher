@@ -5,141 +5,278 @@
 @using StocksPage.Shared.DTOs
 @using StocksPage.Shared.DTOs.PolygonAPI
 
-@*@attribute [Authorize]*@
+@attribute [Authorize]
 @inject HttpClient Http
 @inject NavigationManager navigator
+@inject AuthenticationStateProvider authProvider
 
-<PageTitle>Dashboard</PageTitle>
-
-
-<h1>Dashboard</h1>
-<h2>@stock</h2>
-
-@if (tickerChart == null || tickerDetail == null)
+@if (TickerChart == null || TickerDetail == null || !@areTickersRendered)
 {
-    <p><em>Loading...</em></p>
+    <div class="container">
+        <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
+    </div>
 }
 else
 {
-    <div id="layout">
-		<SfDashboardLayout CellSpacing="@(new double[]{20,20})" Columns="9">
-			<DashboardLayoutPanels>
-				<DashboardLayoutPanel SizeX=9 SizeY=1>
-					<HeaderTemplate><div>Search</div></HeaderTemplate>
-
-					<ContentTemplate><div>search</div></ContentTemplate>
-				</DashboardLayoutPanel>
-				<DashboardLayoutPanel Row=1 SizeX=2 SizeY=2>
-					<HeaderTemplate><div>Icon</div></HeaderTemplate>
-
-					<ContentTemplate><div><img src="@tickerDetail.LogoUrl" alt="@stock logo"/></div></ContentTemplate>
-				</DashboardLayoutPanel>
-				<DashboardLayoutPanel Row=1 SizeX=7 SizeY=1>
-					<HeaderTemplate><div>Name</div></HeaderTemplate>
-
-					<ContentTemplate>
+    <div class="dashboard">
+        <h1 class="title">Dashboard</h1>
+            <SfAutoComplete CssClass="finder" TValue="string" TItem="TickerNameGet" Placeholder="Select stock" AllowCustom=false DataSource="@Tickers"  Width="1000px" PopupWidth="1000px" PopupHeight="400px">
+                <AutoCompleteFieldSettings Value="Ticker"></AutoCompleteFieldSettings>
+                <AutoCompleteTemplates TItem="TickerNameGet">
+                    <ItemTemplate>
                         <div>
-                            @tickerDetail.Name @tickerDetail.Ticker
-                            <SfButton IconCss="e-icons e-check-small" Content="Add to watchlist" IconPosition="IconPosition.Right"></SfButton>
+                            <div class="ticker">@((context as TickerNameGet).Ticker)</div>
+                            <div class="name">@((context as TickerNameGet).Name)</div>
                         </div>
-                    </ContentTemplate>
-				</DashboardLayoutPanel>
-				<DashboardLayoutPanel Row=2 SizeX=7 SizeY=1>
-					<HeaderTemplate><div>Right data</div></HeaderTemplate>
+                    </ItemTemplate>
+                </AutoCompleteTemplates>
+                <AutoCompleteEvents TValue="string" TItem="TickerNameGet" ValueChange="@onChange"></AutoCompleteEvents>
+            </SfAutoComplete>
+        <div class="logo">
+            @if(@TickerDetail.LogoUrl == null)
+            {
+                <img class="logo-img" src="https://www.pngmart.com/files/7/Stocks-Transparent-Background.png" alt="@stock logo"/>
+            }
+            else
+            {
+                <img class="logo-img" src="@TickerDetail.LogoUrl" alt="@stock logo"/>
+            }
+        </div>
+        <div class="info">
+            <SfButton CssClass="button-dsg" IconCss="e-icons e-check-small" Content="Add to watchlist" @onclick="addToWatchlist" IconPosition="IconPosition.Right"></SfButton>
+            @TickerDetail.Name @TickerDetail.Ticker
+        </div>
+        <div class="details">
+            <SfTab Width="100%" CssClass="tab_content e-fill">
+                <TabItems>
+                    <TabItem>
+                        <ChildContent>
+                            <TabHeader Text="Details">
 
-					<ContentTemplate>
-                        <div>
-                            <SfTab CssClass="tab_content">
-                                <TabItems>
-                                    <TabItem>
-                                        <ChildContent>
-                                            <TabHeader Text="Details">
+                            </TabHeader>
+                        </ChildContent>
+                        <ContentTemplate>
+                            <div>
+                                @if (TickerDetail.SicDescription != null)
+                                {
+                                    <p><b>SicDescription:</b> @TickerDetail.SicDescription</p>
+                                }
+                                @if (TickerDetail.Country != null)
+                                {
+                                    <p><b>Country:</b> @TickerDetail.Country.ToString().ToUpper()</p>
+                                }
+                                @if (TickerDetail.Currency != null)
+                                {
+                                    <p><b>Currency:</b> @TickerDetail.Currency.ToString().ToUpper()</p>
+                                }
+                                @if (TickerDetail.Cik != null)
+                                {
+                                    <p><b>Cik:</b> @TickerDetail.Cik</p>
+                                }
+                            </div>
+                        </ContentTemplate>
+                    </TabItem>
+                    <TabItem CssClass="item">
+                        <ChildContent>
+                            <TabHeader Text="More">
 
-                                            </TabHeader>
-                                        </ChildContent>
-                                        <ContentTemplate>
-                                            <div>
-                                                SicDescription: @tickerDetail.SicDescription
-                                                Country: @tickerDetail.Country
-                                                Currency: @tickerDetail.Currency
-                                                Cik: @tickerDetail.Cik
-                                            </div>
-                                        </ContentTemplate>
-                                    </TabItem>
-                                    <TabItem>
-                                        <ChildContent>
-                                            <TabHeader Text="More">
-
-                                            </TabHeader>
-                                        </ChildContent>
-                                        <ContentTemplate>
-                                             <div>
-                                                 Description: @tickerDetail.Description
-                                                 Number of employees: 
-                                                 Homepage: @tickerDetail.Homepage
-                                            </div>
-                                        </ContentTemplate>
-                                    </TabItem>
-                                </TabItems>
-                            </SfTab>
+                            </TabHeader>
+                        </ChildContent>
+                        <ContentTemplate>
+                            <div>
+                                @if (TickerDetail.Description != null)
+                                {
+                                    <p><b>Description:</b> @TickerDetail.Description</p>
+                                }
+                                @if(TickerDetail.TotalEmployees != null)
+                                {
+                                    <p><b>Number of employees:</b> @TickerDetail.TotalEmployees</p>
+                                }
+                                @if (TickerDetail.Homepage != null)
+                                {
+                                    <p><b>Homepage:</b> <a href="@TickerDetail.Homepage">@TickerDetail.Homepage</a></p>
+                                }
+                            </div>
+                        </ContentTemplate>
+                    </TabItem>
+                </TabItems>
+            </SfTab>
                             
-                        </div>
-                    </ContentTemplate>
-				</DashboardLayoutPanel>
-				<DashboardLayoutPanel Row=3 SizeX=9 SizeY=3>
-					<HeaderTemplate><div>Chart</div></HeaderTemplate>
-
-					<ContentTemplate>
-						<div>
-							<SfStockChart Title="@stock">
-								<StockChartCrosshairSettings Enable="true">
-								</StockChartCrosshairSettings>
-								<StockChartTooltipSettings Enable="true">
-								</StockChartTooltipSettings>
-									<StockChartPrimaryXAxis>
-										<StockChartAxisCrosshairTooltip Enable="true">
-										</StockChartAxisCrosshairTooltip>
-									</StockChartPrimaryXAxis>
-									<StockChartPrimaryYAxis>
-										<StockChartAxisCrosshairTooltip Enable="true">
-										</StockChartAxisCrosshairTooltip>
-									</StockChartPrimaryYAxis>
-							<StockChartSeriesCollection>
-								<StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@tickerChart"
-                                XName="Date" High="High" Low="Low" Open="Open" Close="Close" Volume="Volume">
-								</StockChartSeries>
-							</StockChartSeriesCollection>
-							<StockChartChartArea>
-										<StockChartChartAreaBorder Width="0"></StockChartChartAreaBorder>
-							</StockChartChartArea>
-							</SfStockChart>
-						</div>
-					</ContentTemplate>
-				</DashboardLayoutPanel>
-			</DashboardLayoutPanels>
-		</SfDashboardLayout>
+        </div>
+        <div class="chart">
+		    <SfStockChart Title="@stock">
+			    <StockChartCrosshairSettings Enable="true">
+			    </StockChartCrosshairSettings>
+				    <StockChartPrimaryXAxis>
+					    <StockChartAxisCrosshairTooltip Enable="true">
+					    </StockChartAxisCrosshairTooltip>
+				    </StockChartPrimaryXAxis>
+				    <StockChartPrimaryYAxis>
+					    <StockChartAxisCrosshairTooltip Enable="true">
+					    </StockChartAxisCrosshairTooltip>
+				    </StockChartPrimaryYAxis>
+		    <StockChartSeriesCollection>
+			    <StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@TickerChart"
+                XName="Date" High="High" Low="Low" Open="Open" Close="Close" Volume="Volume">
+			    </StockChartSeries>
+		    </StockChartSeriesCollection>
+		    <StockChartChartArea>
+				<StockChartChartAreaBorder Width="0"></StockChartChartAreaBorder>
+		    </StockChartChartArea>
+		    </SfStockChart>
+	    </div>
+        <div class="articles">
+            @if(@News != null && @News.Any())
+            {
+                <h1 class="title-a">Articles</h1>
+                <SfGrid TValue=@TickerNewsGet DataSource="@News" RowHeight="60" AllowSorting="true">
+                    <GridPageSettings PageSize="5"></GridPageSettings>
+                    <GridColumns>
+                        <GridColumn Field=@nameof(TickerNewsGet.Title) HeaderText="Title" TextAlign="TextAlign.Left" Width="120"></GridColumn>
+                        <GridColumn Field=@nameof(TickerNewsGet.PageName) HeaderText="Name of page" TextAlign="TextAlign.Left" Width="20"></GridColumn>
+                        <GridColumn Field=@nameof(TickerNewsGet.Created) HeaderText="Created" TextAlign="TextAlign.Center" Format="d" Width="40"></GridColumn>
+                    </GridColumns>
+                </SfGrid>  
+            }
+        </div>
     </div>
-}
 
+ 
+}
 <style>
-    .tab_content .e-content .e-item {
+    body {
+        overflow-x: hidden;
+    }
+    .container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         font-size: 2rem;
-        padding: 1.7rem;
+        object-fit: contain;
+    }
+    .loader {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .title {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        font-size: 5rem;
+    }
+    .title-a {
+        font-size: 3rem;
+    }
+    .dashboard {
+        display: grid;
+        width: 85vw;
+        grid-template-rows: .5fr 1fr 1fr 1fr .3fr;
+        grid-template-columns: 1fr 1fr 2fr 1fr .3fr;
+        row-gap: 15px;
+        column-gap: 50px;
+        justify-items: center;
+        align-items: center;
+    }
+    .chart {
+        grid-column: 1/5;
+        grid-row: 3/4;
+        width: 1000px;
+        justify-self: left;
+        align-self: left;
+    }
+    .logo-img {
+         height: auto; 
+         width: auto;
+         max-width: 350px; 
+         max-height: 350px;
+    }
+    .logo {
+         grid-column: 1/2;
+         grid-row: 2/3;
+    }
+    .details {
+        grid-column: 2/4;
+        grid-row: 2/3;
+        justify-self: start;
+        align-self: end;
+    }
+    .e-tab > .e-content {
+        overflow-y: auto;
+    }
+    .e-tab-text {
+        color: #f2e8cf;
+    }
+    .e-tab-wrap {
+        background: #6a994e !important;
+    }
+    .e-tab .e-content .e-item {
+        background: #386641 !important;
+        color: #f2e8cf;
+        font-size: 1.3rem;
+        font-color: white;
+        margin-bottom: 15px;
+        border-top: 2px solid white;
         text-align: justify;
+        padding: 2rem;
+        width: 1600px;
+        height: 300px;
     }
-    .layout {
-        position: relative;
-        min-max: 90%;
+    .info {
+        grid-column: 2/4;
+        grid-row: 2/3;
+        justify-self: start;
+        align-self: start;
+        font-size: 4rem;
+        font-weight: 600;
     }
-    .e-panel-header {
-        background-color: rgba(0, 0, 0, .1);
-        text-align: center;
+    .e-ddl.e-input-group.e-control-wrapper .e-input {
+        font-size: 2rem;
+        justify-content: center;
+        align-items: center;
+        color: #6a994e;
     }
-    .e-panel-content {
-        text-align: center;
-        margin-top: 10px;
+    .finder {
+        padding: 1rem;
+        color: #386641;
     }
+    .ticker {
+        float: left;
+        align-items: left;
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-right: 1.5rem;
+    }
+    .name {
+        font-size: 1.5rem;
+        align-items: left;
+    }
+    .button-dsg {
+        width: 13rem;
+        background: #bc4749;
+        border: none;
+        border-radius: 5%;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 1rem;
+        transition: all .3s ease;
+    }
+    .button-dsg:hover {
+        background: #fc8385;
+    }
+    .articles {
+        grid-column: 1/3;
+        grid-row: 4/5;
+    }
+    .e-grid .e-headercell .e-headercelldiv { 
+        font-size: 1.2rem;
+    } 
+    .e-grid .e-rowcell { 
+        font-size: 1.4rem; 
+    } 
 </style>
+
 
 @code {
     [Parameter]
@@ -148,17 +285,50 @@ else
     [Inject]
     public IHttpStockService stockService { get; set; }
 
-    private TickerDetailGet tickerDetail;
-    private IEnumerable<TickerChartGet> tickerChart = new List<TickerChartGet>{};
+    private TickerDetailGet? TickerDetail;
+    private IEnumerable<TickerChartGet> TickerChart = new List<TickerChartGet>{};
+
+    private bool isAuthenticated;
+    private string userId;
+
+    private List<TickerNameGet> Tickers = new List<TickerNameGet>{};
+    private IEnumerable<TickerNewsGet>? News = new List<TickerNewsGet>{};
+
+    private bool areTickersRendered = false;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            var arg = stock.ToString();
 
-            tickerDetail = await stockService.GetTickerDetail(arg);
-            tickerChart = await stockService.GetTickerChart(arg);
+            AuthenticationState authState = await authProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity.IsAuthenticated)
+            {
+                isAuthenticated = true;
+                userId = $"{user.FindFirst(c => c.Type == "sub")?.Value}";
+
+                var arg = stock.ToString();
+
+                TickerDetail = await stockService.GetTickerDetail(arg);
+                TickerChart = await stockService.GetTickerChart(arg);
+
+                var tickers = await stockService.GetTickerNames();
+
+                foreach(var t in tickers)
+                {
+                    Tickers.Add(new TickerNameGet
+                    {
+                        Ticker = t.Ticker,
+                        Name = t.Name
+                    });
+                }
+
+                News = await stockService.GetTickerNews(arg);
+
+                areTickersRendered = true;
+            }
         }
         catch (AccessTokenNotAvailableException exception)
         {
@@ -166,9 +336,13 @@ else
         }
     }
 
-    private void addToWatchlist()
+    private async Task addToWatchlist()
     {
-        
+        await stockService.AddTickerToWatchlist(TickerDetail, userId);
     }
 
+    public void onChange(ChangeEventArgs<string, TickerNameGet> args) 
+    {
+        navigator.NavigateTo("/Details/" + args.Value, forceLoad: true);
+    } 
 }

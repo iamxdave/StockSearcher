@@ -15,9 +15,9 @@ namespace StocksPage.Client.Services
         {
             return await _httpClient.GetFromJsonAsync<TickerDetailGet>($"api/TickerDetails/{tickerName}");
         }
-        public async Task<IEnumerable<WatchlistTickerDetailGet>?> GetTickerDetailsFromWatchlist(int idWatchlist)
+        public async Task<IEnumerable<WatchlistGet>?> GetTickersFromWatchlist(string idUser)
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<WatchlistTickerDetailGet>>($"api/WatchlistTickerDetails/{idWatchlist}");
+            return await _httpClient.GetFromJsonAsync<IEnumerable<WatchlistGet>>($"api/Watchlists/{idUser}");
         }
         public async Task<IEnumerable<TickerNameGet>?> GetTickerNames()
         {
@@ -27,9 +27,17 @@ namespace StocksPage.Client.Services
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<TickerChartGet>>($"api/TickerCharts/{tickerName}");
         }
-        public async Task DeleteDetailFromWatchlist(string tickerName)
+        public async Task<IEnumerable<TickerNewsGet>?> GetTickerNews(string tickerName)
         {
-            await _httpClient.DeleteAsync($"api/WatchlistTickerDetails/{tickerName}");
+            return await _httpClient.GetFromJsonAsync<IEnumerable<TickerNewsGet>>($"api/News/{tickerName}");
+        }
+        public async Task AddTickerToWatchlist(TickerDetailGet ticker, string idUser)
+        {
+            await _httpClient.PostAsJsonAsync($"api/Watchlists/{idUser}", ticker);
+        }
+        public async Task DeleteTickerFromWatchlist(string tickerName, string idUser)
+        {
+            await _httpClient.DeleteAsync($"api/Watchlists/{idUser}/{tickerName}");
         }
     }
 }

@@ -32,6 +32,9 @@ namespace StocksPage.Server.Controllers
 
             var newTickerChart = await _httpClient.GetFromJsonAsync<TickerChartPolygon>($"https://api.polygon.io/v2/aggs/ticker/{tickerName}/range/1/day/{fourMonthBefore}/{now}?adjusted=true&sort=asc&limit=120&apiKey=" + _configuration.GetValue<string>("PolygonAPIKey"));
 
+            if (newTickerChart == null || !newTickerChart.results.Any())
+                return Enumerable.Empty<TickerChartGet>();
+
             List<TickerChartGet> chart = new List<TickerChartGet>();
 
             var date = fourMonthBeforeDate;

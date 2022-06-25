@@ -7,14 +7,15 @@
 <PageTitle>Home</PageTitle>
 
 <main>
-    <div class="title">Welcome to the <span style="color:#301a4a;">stocks</span> market value checker!</div>
-    The application is based on data from the stocks market and allows users to see the fluctuations of individual currencies on the market.
+    @if(tickers == null || !tickers.Any())
+    {
+        <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
+    } else
+    {
+        <div class="title">Welcome to the <span style="color:#bc4749">stocks</span> market value checker!</div>
+        <p>The application is based on data from the stocks market and allows users to see the fluctuations of individual currencies on the market.</p>
+    }
 </main>
-
-@if(tickers == null || !tickers.Any())
-{
-    <p><em>Page is being loaded for the first time. Gathering data about tickers. Please wait.</em></p>
-}
 
 @code {
     [Inject]

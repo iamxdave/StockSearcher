@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj": {}
+    "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
+    "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj",
         "projectName": "StocksPage.Shared",
-        "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj",
+        "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config",

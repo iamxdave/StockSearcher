@@ -1,12 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
+    <div class="sidebar sidebar-bcg">
         <NavMenu />
     </div>
 
-    <main>
-        <div class="top-row px-4 auth">
+    <main style="background-color: #f2e8cf">
+        <div style="background-color: #6a994e" class="top-row px-4 auth">
             <LoginDisplay />
             <a href="https://github.com/xDejw/" target="_blank">
                 <img alt="Github" src="https://cdn-icons-png.flaticon.com/512/25/25231.png?w=360">
@@ -18,3 +18,9 @@
         </article>
     </main>
 </div>
+
+<style>
+    .sidebar-bcg {
+        background: linear-gradient(180deg, #386641, #a7c957) !important;
+    }
+</style>

@@ -6,96 +6,143 @@
 
 @inject HttpClient Http
 @inject IJSRuntime js
+@inject AuthenticationStateProvider authProvider
 
-<h3>Watchlist</h3>
+@if (!isAuthenticated)
+{
+    <div class="container">
+        <div class="auth">User is <span style="color:#bc4749">NOT AUTHENTICATED</span> to see this watchlist</div>
+    </div>
+}
 
-<table>
-    <thead>
-        <tr>
-            <th @onclick="@(() => Sort("LogoUrl"))">Logo</th>
-            <th @onclick="@(() => Sort("Ticker"))">Ticker</th>
-            <th @onclick="@(() => Sort("Name"))">Name</th>
-            <th @onclick="@(() => Sort("Country"))">Country</th>
-            <th @onclick="@(() => Sort("Currency"))">Currency</th>
-            <th @onclick="@(() => Sort("Cik"))">Cik</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach(var ticker in WatchlistTickerDetails)
-    {
-        <tr>
-            <td><img src="@ticker.LogoUrl" alt="@(ticker.Ticker) logo"/></td>
-            <td>@ticker.Ticker</td>
-            <td>@ticker.Name</td>
-            <td>@ticker.Country</td>
-            <td>@ticker.Currency</td>
-            <td>@ticker.Cik</td>
-            <td class="last--column">
-                <button class="delete--btn" @onclick="(() => DeleteTickerDetailFromWatchlist(ticker.Ticker))">X</button>
-            </td>
-        </tr>
+else if (Watchlists == null || !Watchlists.Any())
+{
+    <div class="container">
+        <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
+    </div>
+}
+else
+{
+    <h3 class="title">Watchlist</h3>
+    <SfGrid TValue=@WatchlistGet DataSource="@Watchlists" RowHeight="60" AllowPaging="true" AllowSorting="true" Toolbar="@(new List<string>() { "Delete", "Cancel" })">
+        <GridEvents OnBatchDelete="OnDelete" TValue="WatchlistGet"></GridEvents>
+        <GridPageSettings PageSize="5"></GridPageSettings>
+        <GridEditSettings AllowDeleting="true" Mode="@EditMode.Batch"></GridEditSettings>
+        <GridColumns>
+            <GridColumn HeaderText="Logo" TextAlign="TextAlign.Center" Width="30">
+                <Template>
+                    @{
+                        var logo = (context as WatchlistGet);
+                                @if (logo.LogoUrl == null)
+                        {
+                            logo.LogoUrl = "https://www.pngmart.com/files/7/Stocks-Transparent-Background.png";
+                        }
+                                <div class="img">
+                                    <img src="@logo.LogoUrl" />
+                                </div>
+                    }
+                </Template>
+            </GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Ticker) HeaderText="Ticker" IsPrimaryKey="true" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Name) HeaderText="Name" TextAlign="TextAlign.Left" Width="100"></GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Country) HeaderText="Country" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Currency) HeaderText="Currency" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Cik) HeaderText="Cik" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+        </GridColumns>
+    </SfGrid>
+}
+
+<style>
+    .container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 2rem;
     }
-    </tbody>
-</table>
 
+    .loader {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    .title {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+    .auth {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .e-grid .e-headercell .e-headercelldiv {
+        font-size: 1.2rem;
+    }
+
+    .e-grid .e-rowcell {
+        font-size: 1.4rem;
+    }
+
+    label {
+        margin-right: 1.3rem;
+    }
+
+    img {
+        margin: 1.5rem;
+        width: 8rem;
+        align-self: center;
+    }
+</style>
 
 @code {
     [Inject]
-    public IHttpStockService stockService { get; set; }
+    public IHttpStockService? stockService { get; set; }
 
-    public IEnumerable<WatchlistTickerDetailGet> WatchlistTickerDetails = new List<WatchlistTickerDetailGet> { };
+    private IEnumerable<WatchlistGet>? Watchlists = new List<WatchlistGet> { };
 
-    public KeyValuePair<string, bool> ColumnSort { get; set; } = new KeyValuePair<string, bool>("", false);
+    private bool isAuthenticated;
+    private string? userId;
+
+    private SfGrid<WatchlistGet>? DataGrid { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            WatchlistTickerDetails = await stockService.GetTickerDetailsFromWatchlist(1);
+            AuthenticationState authState = await authProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity.IsAuthenticated)
+            {
+                isAuthenticated = true;
+                userId = $"{user.FindFirst(c => c.Type == "sub")?.Value}";
+                Watchlists = await stockService.GetTickersFromWatchlist(userId);
+            }
+            else
+            {
+                isAuthenticated = false;
+            }
         }
+
         catch (AccessTokenNotAvailableException exception)
         {
             exception.Redirect();
         }
+
     }
-
-    private void Sort(string columnName)
+    public async Task OnDelete(BeforeBatchDeleteArgs<WatchlistGet> args)
     {
-        if(ColumnSort.Key != columnName)
-        {
-            ColumnSort = new KeyValuePair<string, bool>(columnName, false);
-        } else
-        {
-            ColumnSort = new KeyValuePair<string, bool>(columnName, !ColumnSort.Value);
-        }
-
-        if (ColumnSort.Value)
-        {
-            SortDesc(columnName);
-        } else
-        {
-            SortAsc(columnName);
-        }
-    }
-
-    private void SortAsc(string columnName)
-    {
-        WatchlistTickerDetails = WatchlistTickerDetails.OrderBy(e => e.GetType().GetProperty(columnName).GetValue(e, null)).ToList();
-    }
-
-    private void SortDesc(string columnName)
-    {
-        WatchlistTickerDetails = WatchlistTickerDetails.OrderByDescending(e => e.GetType().GetProperty(columnName).GetValue(e, null)).ToList();
-    }
-
-    private async Task DeleteTickerDetailFromWatchlist(string ticker)
-    {
-        var result = await js.InvokeAsync<bool>("confirm", "Are you sure?");
+        var tickerName = args.RowData.Ticker;
+        var result = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {tickerName} from the list?");
         if (result)
         {
-            await stockService.DeleteDetailFromWatchlist(ticker);
+            await stockService.DeleteTickerFromWatchlist(tickerName, userId);
+        }
+        else
+        {
+            await DataGrid.CloseEditAsync();
         }
     }
-
-
 }

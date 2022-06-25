@@ -16,9 +16,15 @@ namespace StocksPage.Server.Services
         {
             return _context.TickerDetails.Where(e => e.Ticker == tickerName);
         }
-        public IQueryable<TickerDetail> GetWatchlistTickerDetails(int idWatchlistTickerDetail)
+        public IQueryable<TickerDetail> GetTickerDetailsInWatchlist(string idUser)
         {
-            return _context.TickerDetails.Where(e => e.IdWatchlistTickerDetail == idWatchlistTickerDetail);
+            var ids = _context.Watchlists.Where(e => e.IdUser == idUser).Select(e => e.IdTickerDetail);
+            return _context.TickerDetails.Where(e => ids.Contains(e.IdTickerDetail));
+        }
+        public IQueryable<Watchlist> GetWatchlists()
+        {
+            return _context.Watchlists;
+
         }
         public IQueryable<TickerName> GetTickerName(string tickerName)
         {

@@ -8,7 +8,13 @@ main[b-h5vdkg99k9] {
 }
 
 .title[b-h5vdkg99k9] {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.loader[b-h5vdkg99k9] {
+    font-size: 4rem;
+    font-weight: 600;
     margin-bottom: 1rem;
 }

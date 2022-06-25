@@ -4,63 +4,89 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-        </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
-</div>
+
+<section> 
+    <form class="form" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <h2>Create a new account.</h2>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <input asp-for="Input.Email" class="input-design form-control" autocomplete="username" aria-required="true" />
+            <label asp-for="Input.Email" class="label-design"></label>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="Input.Password" class="input-design form-control" autocomplete="new-password" aria-required="true" />
+            <label asp-for="Input.Password" class="label-design"></label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="Input.ConfirmPassword" class="input-design form-control" autocomplete="new-password" aria-required="true" />
+            <label asp-for="Input.ConfirmPassword" class="label-design"></label>
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+        <button id="registerSubmit" type="submit">Create</button>
+    </form>
+    <h1>@ViewData["Title"]</h1>
+</section>
+
+<style>
+    body {
+        background: #f2e8cf;
+    }
+    section {
+        width: 40vw;
+        height: 90vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    button {
+        width: 15rem;
+        background: #a7c957;
+        border: none;
+        border-radius: 5%;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-top: 1.7rem;
+        padding: 1rem;
+        transition: all .3s ease;
+    }
+    button:hover {
+        background: #6a994e;
+    }
+    .input-design {
+        width: 20rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        padding: 2rem;
+        background: none;
+        border: none;
+        border-bottom: 3px solid black;
+        outline: none;
+    }
+    .input-design::placeholder {
+         font-size: 1.5rem;
+    }
+    .label-design {
+        font-size: 1.3rem;
+        margin-top: 7px;
+    }
+    .form {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        font-size: 5rem
+    }
+
+</style>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj": {}
+    "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj": {
+    "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj",
         "projectName": "StocksPage.Client",
-        "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj",
+        "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\obj\\",
+        "outputPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
-                "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj"
+              "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
+                "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj"
               }
             }
           }
@@ -67,11 +67,15 @@
             },
             "Syncfusion.Blazor.DropDowns": {
               "target": "Package",
-              "version": "[20.1.0.60, )"
+              "version": "[20.1.0.61, )"
+            },
+            "Syncfusion.Blazor.Grid": {
+              "target": "Package",
+              "version": "[20.1.0.61, )"
             },
             "Syncfusion.Blazor.Layouts": {
               "target": "Package",
-              "version": "[20.1.0.60, )"
+              "version": "[20.1.0.61, )"
             },
             "Syncfusion.Blazor.Navigations": {
               "target": "Package",
@@ -79,11 +83,11 @@
             },
             "Syncfusion.Blazor.StockChart": {
               "target": "Package",
-              "version": "[20.1.0.60, )"
+              "version": "[20.1.0.61, )"
             },
             "Syncfusion.Blazor.Themes": {
               "target": "Package",
-              "version": "[20.1.0.60, )"
+              "version": "[20.1.0.61, )"
             }
           },
           "imports": [
@@ -116,14 +120,14 @@
         }
       }
     },
-    "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
+    "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj",
         "projectName": "StocksPage.Shared",
-        "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj",
+        "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj",
         "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config",

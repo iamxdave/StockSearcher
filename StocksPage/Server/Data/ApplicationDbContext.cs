@@ -11,7 +11,8 @@ namespace StocksPage.Server.Data
     {
         public DbSet<TickerName> TickerNames { get; set; }
         public DbSet<TickerDetail> TickerDetails { get; set; }
-        public DbSet<WatchlistTickerDetail> WatchlistTickerDetails { get; set; }
+        public DbSet<Watchlist> Watchlists { get; set; }
+
 
         public ApplicationDbContext(
             DbContextOptions options,
@@ -24,7 +25,7 @@ namespace StocksPage.Server.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new TickerNameConfiguration());
             modelBuilder.ApplyConfiguration(new TickerDetailConfiguration());
-            modelBuilder.ApplyConfiguration(new WatchlistTickerDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new WatchlistConfiguration());
         }
     }
 }

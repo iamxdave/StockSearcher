@@ -6,8 +6,8 @@
 
 <AuthorizeView>
     <Authorized>
-        <a href="authentication/profile">Hello, @context.User.Identity?.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
+        <a class="user-dsg">Hello, @context.User.Identity?.Name!</a>
+        <button style="color:#ffffff" class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
     </Authorized>
     <NotAuthorized>
         <a href="authentication/register">Register</a>
@@ -15,6 +15,12 @@
     </NotAuthorized>
 </AuthorizeView>
 
+<style>
+    user-dsg, a, a:hover, a:active, a:visited { 
+        color: white;
+        font-size: 1.1rem;
+    }
+</style>
 @code{
     private async Task BeginSignOut(MouseEventArgs args)
     {

@@ -30,9 +30,13 @@ namespace StocksPage.Server.Controllers
             {
                 var newTickerDetail = await _httpClient.GetFromJsonAsync<TickerDetailPolygon>($"https://api.polygon.io/v3/reference/tickers/{tickerName}?apiKey=" + _configuration.GetValue<string>("PolygonAPIKey"));
 
-                await _service.CreateAsync(new TickerDetail
+                if (newTickerDetail == null)
+                    return null;
+                
+                TickerDetail td;
+
+                td = new TickerDetail
                 {
-                    LogoUrl = newTickerDetail.results.branding.logo_url,
                     Ticker = newTickerDetail.results.ticker,
                     Name = newTickerDetail.results.name,
                     SicDescription = newTickerDetail.results.sic_description,
@@ -42,13 +46,35 @@ namespace StocksPage.Server.Controllers
                     Description = newTickerDetail.results.description,
                     TotalEmployees = newTickerDetail.results.total_employees,
                     Homepage = newTickerDetail.results.homepage_url,
-                });
+                };
+
+                if (newTickerDetail.results.branding != null)
+                {
+                    td.LogoUrl = newTickerDetail.results.branding.logo_url;
+                }
+
+                await _service.CreateAsync(td);
                 await _service.SaveChangesAsync();
+
+                return new TickerDetailGet
+                {
+                    LogoUrl = td.LogoUrl == null ? null : td.LogoUrl + "?apiKey=" + _configuration.GetValue<string>("PolygonAPIKey"),
+                    Ticker = td.Ticker,
+                    Name = td.Name,
+                    SicDescription = td.SicDescription,
+                    Country = td.Country,
+                    Currency = td.Currency,
+                    Cik = td.Cik,
+                    Description = td.Description,
+                    TotalEmployees = td.TotalEmployees,
+                    Homepage = td.Homepage
+                };
             }
+
 
             return _service.GetTickerDetail(tickerName).Select(e => new TickerDetailGet
             {
-                LogoUrl = e.LogoUrl,
+                LogoUrl = e.LogoUrl == null ? null : e.LogoUrl + "?apiKey=" + _configuration.GetValue<string>("PolygonAPIKey"),
                 Ticker = e.Ticker,
                 Name = e.Name,
                 SicDescription = e.SicDescription,

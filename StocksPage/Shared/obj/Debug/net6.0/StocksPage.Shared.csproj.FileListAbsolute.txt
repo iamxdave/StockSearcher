@@ -10,3 +10,15 @@ C:\Users\Dawid\source\repos\StocksPage\StocksPage\Shared\obj\Debug\net6.0\Stocks
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Shared\obj\Debug\net6.0\refint\StocksPage.Shared.dll
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.pdb
 C:\Users\Dawid\source\repos\StocksPage\StocksPage\Shared\obj\Debug\net6.0\ref\StocksPage.Shared.dll
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\bin\Debug\net6.0\StocksPage.Shared.deps.json
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\bin\Debug\net6.0\StocksPage.Shared.dll
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\bin\Debug\net6.0\StocksPage.Shared.pdb
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.csproj.AssemblyReference.cache
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.AssemblyInfoInputs.cache
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.AssemblyInfo.cs
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.dll
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\refint\StocksPage.Shared.dll
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\StocksPage.Shared.pdb
+C:\Users\Dawid\Desktop\cl\StockSearcher\StocksPage\Shared\obj\Debug\net6.0\ref\StocksPage.Shared.dll

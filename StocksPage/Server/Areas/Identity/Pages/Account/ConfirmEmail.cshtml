@@ -1,0 +1,51 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Confirm email";
+}
+
+
+<section>
+    <h1 class="title">Email confirmed</h1>
+    <div class="dsg">
+        <p class="text">   
+            Thank you for confirming your email!
+        </p>
+    </div>
+</section>
+
+<style>
+    body {
+        background: #f2e8cf;
+    }
+    section {
+        width: 40vw;
+        height: 90vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .title {
+        font-size: 4rem;
+        color: #6a994e;
+    }
+    .dsg {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    a {
+        text-decoration: none;
+    }
+    .text {
+        font-size: 3.5rem;
+        font-weight: 600;
+        color: #a7c957;
+        padding: 3rem;
+        margin-bottom: 10px;
+        border-bottom: #386641;
+    }
+</style>

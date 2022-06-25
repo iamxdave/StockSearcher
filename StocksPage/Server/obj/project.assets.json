@@ -2263,13 +2263,13 @@
           "lib/net6.0/Syncfusion.Blazor.Buttons.dll": {}
         }
       },
-      "Syncfusion.Blazor.Calendars/20.1.0.60": {
+      "Syncfusion.Blazor.Calendars/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Buttons": "20.1.0.60",
-          "Syncfusion.Blazor.Core": "20.1.0.60",
-          "Syncfusion.Blazor.Inputs": "20.1.0.60",
-          "Syncfusion.Blazor.Lists": "20.1.0.60"
+          "Syncfusion.Blazor.Buttons": "20.1.0.61",
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Inputs": "20.1.0.61",
+          "Syncfusion.Blazor.Lists": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.Calendars.dll": {}
@@ -2284,13 +2284,13 @@
           "buildMultiTargeting/Syncfusion.Blazor.Calendars.props": {}
         }
       },
-      "Syncfusion.Blazor.Charts/20.1.0.60": {
+      "Syncfusion.Blazor.Charts/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Core": "20.1.0.60",
-          "Syncfusion.Blazor.Data": "20.1.0.60",
-          "Syncfusion.Blazor.DataVizCommon": "20.1.0.60",
-          "Syncfusion.PdfExport.Net.Core": "20.1.0.60"
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Data": "20.1.0.61",
+          "Syncfusion.Blazor.DataVizCommon": "20.1.0.61",
+          "Syncfusion.PdfExport.Net.Core": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.Charts.dll": {}
@@ -2344,10 +2344,10 @@
           "buildMultiTargeting/Syncfusion.Blazor.Data.props": {}
         }
       },
-      "Syncfusion.Blazor.DataVizCommon/20.1.0.60": {
+      "Syncfusion.Blazor.DataVizCommon/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Core": "20.1.0.60"
+          "Syncfusion.Blazor.Core": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.DataVizCommon.dll": {}
@@ -2356,14 +2356,14 @@
           "lib/net6.0/Syncfusion.Blazor.DataVizCommon.dll": {}
         }
       },
-      "Syncfusion.Blazor.DropDowns/20.1.0.60": {
+      "Syncfusion.Blazor.DropDowns/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Buttons": "20.1.0.60",
-          "Syncfusion.Blazor.Core": "20.1.0.60",
-          "Syncfusion.Blazor.Data": "20.1.0.60",
-          "Syncfusion.Blazor.Inputs": "20.1.0.60",
-          "Syncfusion.Blazor.Spinner": "20.1.0.60"
+          "Syncfusion.Blazor.Buttons": "20.1.0.61",
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Data": "20.1.0.61",
+          "Syncfusion.Blazor.Inputs": "20.1.0.61",
+          "Syncfusion.Blazor.Spinner": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.DropDowns.dll": {}
@@ -2376,6 +2376,34 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Syncfusion.Blazor.DropDowns.props": {}
+        }
+      },
+      "Syncfusion.Blazor.Grid/20.1.0.61": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Blazor.Buttons": "20.1.0.61",
+          "Syncfusion.Blazor.Calendars": "20.1.0.61",
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Data": "20.1.0.61",
+          "Syncfusion.Blazor.DropDowns": "20.1.0.61",
+          "Syncfusion.Blazor.Inputs": "20.1.0.61",
+          "Syncfusion.Blazor.Navigations": "20.1.0.61",
+          "Syncfusion.Blazor.Popups": "20.1.0.61",
+          "Syncfusion.Blazor.Spinner": "20.1.0.61",
+          "Syncfusion.ExcelExport.Net.Core": "20.1.0.61",
+          "Syncfusion.PdfExport.Net.Core": "20.1.0.61"
+        },
+        "compile": {
+          "lib/net6.0/Syncfusion.Blazor.Grids.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Syncfusion.Blazor.Grids.dll": {}
+        },
+        "build": {
+          "buildTransitive/Syncfusion.Blazor.Grid.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Syncfusion.Blazor.Grid.props": {}
         }
       },
       "Syncfusion.Blazor.Inputs/20.1.0.61": {
@@ -2400,11 +2428,11 @@
           "buildMultiTargeting/Syncfusion.Blazor.Inputs.props": {}
         }
       },
-      "Syncfusion.Blazor.Layouts/20.1.0.60": {
+      "Syncfusion.Blazor.Layouts/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Core": "20.1.0.60",
-          "Syncfusion.Blazor.Data": "20.1.0.60"
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Data": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.Layouts.dll": {}
@@ -2482,16 +2510,16 @@
           "buildMultiTargeting/Syncfusion.Blazor.Popups.props": {}
         }
       },
-      "Syncfusion.Blazor.RangeNavigator/20.1.0.60": {
+      "Syncfusion.Blazor.RangeNavigator/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.Calendars": "20.1.0.60",
-          "Syncfusion.Blazor.Charts": "20.1.0.60",
-          "Syncfusion.Blazor.Core": "20.1.0.60",
-          "Syncfusion.Blazor.Data": "20.1.0.60",
-          "Syncfusion.Blazor.DataVizCommon": "20.1.0.60",
-          "Syncfusion.Blazor.Navigations": "20.1.0.60",
-          "Syncfusion.PdfExport.Net.Core": "20.1.0.60"
+          "Syncfusion.Blazor.Calendars": "20.1.0.61",
+          "Syncfusion.Blazor.Charts": "20.1.0.61",
+          "Syncfusion.Blazor.Core": "20.1.0.61",
+          "Syncfusion.Blazor.Data": "20.1.0.61",
+          "Syncfusion.Blazor.DataVizCommon": "20.1.0.61",
+          "Syncfusion.Blazor.Navigations": "20.1.0.61",
+          "Syncfusion.PdfExport.Net.Core": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.RangeNavigator.dll": {}
@@ -2545,10 +2573,10 @@
           "buildMultiTargeting/Syncfusion.Blazor.SplitButtons.props": {}
         }
       },
-      "Syncfusion.Blazor.StockChart/20.1.0.60": {
+      "Syncfusion.Blazor.StockChart/20.1.0.61": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Blazor.RangeNavigator": "20.1.0.60"
+          "Syncfusion.Blazor.RangeNavigator": "20.1.0.61"
         },
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.StockChart.dll": {}
@@ -2563,7 +2591,7 @@
           "buildMultiTargeting/Syncfusion.Blazor.StockChart.props": {}
         }
       },
-      "Syncfusion.Blazor.Themes/20.1.0.60": {
+      "Syncfusion.Blazor.Themes/20.1.0.61": {
         "type": "package",
         "compile": {
           "lib/net6.0/Syncfusion.Blazor.Themes.dll": {}
@@ -2578,6 +2606,18 @@
           "buildMultiTargeting/Syncfusion.Blazor.Themes.props": {}
         }
       },
+      "Syncfusion.ExcelExport.Net.Core/20.1.0.61": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "2.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Syncfusion.ExcelExport.Net.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Syncfusion.ExcelExport.Net.dll": {}
+        }
+      },
       "Syncfusion.Licensing/20.1.0.61": {
         "type": "package",
         "compile": {
@@ -2587,7 +2627,7 @@
           "lib/net6.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.PdfExport.Net.Core/20.1.0.60": {
+      "Syncfusion.PdfExport.Net.Core/20.1.0.61": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -3651,11 +3691,12 @@
           "Microsoft.Extensions.Http": "6.0.0",
           "StocksPage.Shared": "1.0.0",
           "Syncfusion.Blazor.Buttons": "20.1.0.61",
-          "Syncfusion.Blazor.DropDowns": "20.1.0.60",
-          "Syncfusion.Blazor.Layouts": "20.1.0.60",
+          "Syncfusion.Blazor.DropDowns": "20.1.0.61",
+          "Syncfusion.Blazor.Grid": "20.1.0.61",
+          "Syncfusion.Blazor.Layouts": "20.1.0.61",
           "Syncfusion.Blazor.Navigations": "20.1.0.61",
-          "Syncfusion.Blazor.StockChart": "20.1.0.60",
-          "Syncfusion.Blazor.Themes": "20.1.0.60"
+          "Syncfusion.Blazor.StockChart": "20.1.0.61",
+          "Syncfusion.Blazor.Themes": "20.1.0.61"
         },
         "compile": {
           "bin/placeholder/StocksPage.Client.dll": {}
@@ -7236,10 +7277,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.Calendars/20.1.0.60": {
-      "sha512": "L5XvUcZqv7spZPy9QGz65+94anD8sesl2PdrHaXpAPqyDe1iOKtUXuRp0kpqeqZOy1ML0o5yDMFSTRS0C4GxpA==",
+    "Syncfusion.Blazor.Calendars/20.1.0.61": {
+      "sha512": "e7N95lEkFSzgFJKRaYuV4nwVNY59nD7/wYTf5ss4FtWB0llerDBG2nkB1py1/UAbsV2P/cx8SAmDn4DqK+JPGQ==",
       "type": "package",
-      "path": "syncfusion.blazor.calendars/20.1.0.60",
+      "path": "syncfusion.blazor.calendars/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7255,19 +7296,19 @@
         "lib/net6.0/Syncfusion.Blazor.Calendars.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.Calendars.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.Calendars.xml",
-        "staticwebassets/scripts/sf-calendarbase-6342d5.min.js",
-        "staticwebassets/scripts/sf-datepicker-6342d5.min.js",
-        "staticwebassets/scripts/sf-daterangepicker-6342d5.min.js",
-        "staticwebassets/scripts/sf-timepicker-6342d5.min.js",
-        "syncfusion.blazor.calendars.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-calendarbase-71ae9a.min.js",
+        "staticwebassets/scripts/sf-datepicker-71ae9a.min.js",
+        "staticwebassets/scripts/sf-daterangepicker-71ae9a.min.js",
+        "staticwebassets/scripts/sf-timepicker-71ae9a.min.js",
+        "syncfusion.blazor.calendars.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.calendars.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.Charts/20.1.0.60": {
-      "sha512": "gupc9DNetbjIu1s6euoVdxxaGNx6UgxbdbsfDqRosEOyqKNvinxnRJxvfPfgm+8WILxroV4E2K5k/JQ7XFUMLw==",
+    "Syncfusion.Blazor.Charts/20.1.0.61": {
+      "sha512": "r1Y3a6EMn+bSg8A+WYNLq2w5x0jLPnHDE0saetVN3JSm88NsE58WUTkqKQ3gLQ99vLGLfvTE4AC8+bn+Ulc/Gw==",
       "type": "package",
-      "path": "syncfusion.blazor.charts/20.1.0.60",
+      "path": "syncfusion.blazor.charts/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7283,9 +7324,9 @@
         "lib/net6.0/Syncfusion.Blazor.Charts.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.Charts.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.Charts.xml",
-        "staticwebassets/scripts/sf-accumulation-chart-6342d5.min.js",
-        "staticwebassets/scripts/sf-chart-6342d5.min.js",
-        "syncfusion.blazor.charts.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-accumulation-chart-71ae9a.min.js",
+        "staticwebassets/scripts/sf-chart-71ae9a.min.js",
+        "syncfusion.blazor.charts.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.charts.nuspec",
         "syncfusion_logo.png"
       ]
@@ -7351,10 +7392,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.DataVizCommon/20.1.0.60": {
-      "sha512": "qjZADU7UJBmbhtIz5Two3Z60TbgM3kSPpupKDMfFoR/pl1XLMyaxEGkqLLQ6z71migmw6RfiGfER/BPVRgWMJg==",
+    "Syncfusion.Blazor.DataVizCommon/20.1.0.61": {
+      "sha512": "t6M1KgVGA0SC+fXQVYi1D9WAPg2YSRgpfgEhv7WaIc+cNwrjXbzZdZadMHx4MRKQVJXAs86TxJ88eTT9WXPexQ==",
       "type": "package",
-      "path": "syncfusion.blazor.datavizcommon/20.1.0.60",
+      "path": "syncfusion.blazor.datavizcommon/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7365,15 +7406,15 @@
         "lib/net6.0/Syncfusion.Blazor.DataVizCommon.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.DataVizCommon.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.DataVizCommon.xml",
-        "syncfusion.blazor.datavizcommon.20.1.0.60.nupkg.sha512",
+        "syncfusion.blazor.datavizcommon.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.datavizcommon.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.DropDowns/20.1.0.60": {
-      "sha512": "o6H9COiL5zTggrLYOCLjqCpTne+j4VAcWderSFMvw/Sg6CkcmYNPwjTk2LkmVJWFxexLjpoc7c+0ZAla0aU4NQ==",
+    "Syncfusion.Blazor.DropDowns/20.1.0.61": {
+      "sha512": "vUe9Bl7eRD0m+uaS1v+YEh+lS+JpvWeagjdO3XVFWGrJzUF6xFuCxe2/YN/4AlMWs81jkNZZ4OkpxoFCWHqJ2Q==",
       "type": "package",
-      "path": "syncfusion.blazor.dropdowns/20.1.0.60",
+      "path": "syncfusion.blazor.dropdowns/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7389,12 +7430,37 @@
         "lib/net6.0/Syncfusion.Blazor.DropDowns.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.DropDowns.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.DropDowns.xml",
-        "staticwebassets/scripts/sf-dropdownlist-6342d5.min.js",
-        "staticwebassets/scripts/sf-listbox-6342d5.min.js",
-        "staticwebassets/scripts/sf-multiselect-6342d5.min.js",
-        "staticwebassets/scripts/sortable-6342d5.min.js",
-        "syncfusion.blazor.dropdowns.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-dropdownlist-71ae9a.min.js",
+        "staticwebassets/scripts/sf-listbox-71ae9a.min.js",
+        "staticwebassets/scripts/sf-multiselect-71ae9a.min.js",
+        "staticwebassets/scripts/sortable-71ae9a.min.js",
+        "syncfusion.blazor.dropdowns.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.dropdowns.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.Blazor.Grid/20.1.0.61": {
+      "sha512": "PGwNimmsFUiFERDl7w7i3BO8OOIguXn4tPI+PQPXiBYvyjLI3NJPwkoPqrfST+vBD8WvpvuUe0+MvmMHuUSePg==",
+      "type": "package",
+      "path": "syncfusion.blazor.grid/20.1.0.61",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "build/Syncfusion.Blazor.Grid.props",
+        "buildMultiTargeting/Syncfusion.Blazor.Grid.props",
+        "buildTransitive/Syncfusion.Blazor.Grid.props",
+        "lib/net5.0/Syncfusion.Blazor.Grids.dll",
+        "lib/net5.0/Syncfusion.Blazor.Grids.xml",
+        "lib/net6.0/Syncfusion.Blazor.Grids.dll",
+        "lib/net6.0/Syncfusion.Blazor.Grids.xml",
+        "lib/netstandard2.1/Syncfusion.Blazor.Grids.dll",
+        "lib/netstandard2.1/Syncfusion.Blazor.Grids.xml",
+        "staticwebassets/scripts/sf-grid-71ae9a.min.js",
+        "syncfusion.blazor.grid.20.1.0.61.nupkg.sha512",
+        "syncfusion.blazor.grid.nuspec",
         "syncfusion_logo.png"
       ]
     },
@@ -7429,10 +7495,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.Layouts/20.1.0.60": {
-      "sha512": "IYX6YET5l+hCsvLnk+4RIpdQdLhjqBt2ZSEBr8MQI/EHVN1MzI7L+5f8Kv0OdwGzUMAmbfaZ6YY43e5cDJm5Ig==",
+    "Syncfusion.Blazor.Layouts/20.1.0.61": {
+      "sha512": "2JGaLTQrOt1IDCynSmy2fKzmcr6spfEqf3OjRvyZW1XeBDrktEYhC3lLLnMFEKkyA1bXjWEFRpZT4elDDXsXLw==",
       "type": "package",
-      "path": "syncfusion.blazor.layouts/20.1.0.60",
+      "path": "syncfusion.blazor.layouts/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7448,9 +7514,9 @@
         "lib/net6.0/Syncfusion.Blazor.Layouts.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.Layouts.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.Layouts.xml",
-        "staticwebassets/scripts/sf-dashboard-layout-6342d5.min.js",
-        "staticwebassets/scripts/sf-splitter-6342d5.min.js",
-        "syncfusion.blazor.layouts.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-dashboard-layout-71ae9a.min.js",
+        "staticwebassets/scripts/sf-splitter-71ae9a.min.js",
+        "syncfusion.blazor.layouts.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.layouts.nuspec",
         "syncfusion_logo.png"
       ]
@@ -7539,10 +7605,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.RangeNavigator/20.1.0.60": {
-      "sha512": "T/5Mo5e6q+mLY+DsNc5RwX2URzo6BPpPOTOPpXB+Q0eEO21cz2dv8VNdUUOQ4aJOsAXLb8vbSxxHAp5gtt6LQw==",
+    "Syncfusion.Blazor.RangeNavigator/20.1.0.61": {
+      "sha512": "rDT8Wh+1VpVMmU3NEI8nQT8DdYsUBcrcCrA0mJlYsunlN/ZGkyE65IZSa8G+4QjJV0IKyneWUFA/g4Y9OsiKGQ==",
       "type": "package",
-      "path": "syncfusion.blazor.rangenavigator/20.1.0.60",
+      "path": "syncfusion.blazor.rangenavigator/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7558,8 +7624,8 @@
         "lib/net6.0/Syncfusion.Blazor.RangeNavigator.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.RangeNavigator.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.RangeNavigator.xml",
-        "staticwebassets/scripts/sf-range-navigator-6342d5.min.js",
-        "syncfusion.blazor.rangenavigator.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-range-navigator-71ae9a.min.js",
+        "syncfusion.blazor.rangenavigator.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.rangenavigator.nuspec",
         "syncfusion_logo.png"
       ]
@@ -7616,10 +7682,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.StockChart/20.1.0.60": {
-      "sha512": "ed5v5y1VYngJxFm9y4UfmNj6FHWR8Qrf4/uQdISOof+9IlwtfqNrUKab4YVfxhjW3j+Gzd5NbIAbAeo+E1SNkw==",
+    "Syncfusion.Blazor.StockChart/20.1.0.61": {
+      "sha512": "8TT8GbAmnMN018nFaDPj9uARyLiqCOIzlp4guGgyJNucacaCXO/BrU0nFjtAlbLITOXXdzFqGiKYaGYKjMcONg==",
       "type": "package",
-      "path": "syncfusion.blazor.stockchart/20.1.0.60",
+      "path": "syncfusion.blazor.stockchart/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7635,16 +7701,16 @@
         "lib/net6.0/Syncfusion.Blazor.StockChart.xml",
         "lib/netstandard2.1/Syncfusion.Blazor.StockChart.dll",
         "lib/netstandard2.1/Syncfusion.Blazor.StockChart.xml",
-        "staticwebassets/scripts/sf-stock-chart-6342d5.min.js",
-        "syncfusion.blazor.stockchart.20.1.0.60.nupkg.sha512",
+        "staticwebassets/scripts/sf-stock-chart-71ae9a.min.js",
+        "syncfusion.blazor.stockchart.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.stockchart.nuspec",
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.Blazor.Themes/20.1.0.60": {
-      "sha512": "DpiO0prgRYwNo3EePNjAbrq8IwIXPDl5Cl6TmQ3lwvjet85+BCoEdY0O78nn3TycplvsSao0F8qVKJLWB8NSYw==",
+    "Syncfusion.Blazor.Themes/20.1.0.61": {
+      "sha512": "R0RTbWYHSc3P63iLSqZXU472FoDdnoveg0rMwVnvcHWrus1bXAy73c2VHIoTpMvKrXL7r/VkgSy5tuphyoy+6A==",
       "type": "package",
-      "path": "syncfusion.blazor.themes/20.1.0.60",
+      "path": "syncfusion.blazor.themes/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7674,8 +7740,25 @@
         "staticwebassets/material.css",
         "staticwebassets/tailwind-dark.css",
         "staticwebassets/tailwind.css",
-        "syncfusion.blazor.themes.20.1.0.60.nupkg.sha512",
+        "syncfusion.blazor.themes.20.1.0.61.nupkg.sha512",
         "syncfusion.blazor.themes.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.ExcelExport.Net.Core/20.1.0.61": {
+      "sha512": "BL02q7ny8ZPINvPaypGZxp68v1bHyvjsOqIJZvtjNKvPYs8gQI+b+OfvB7qFYZ8v/ZxRFfSY8Xp6S5ZIJT727Q==",
+      "type": "package",
+      "path": "syncfusion.excelexport.net.core/20.1.0.61",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "lib/net5.0/Syncfusion.ExcelExport.Net.dll",
+        "lib/net5.0/Syncfusion.ExcelExport.Net.xml",
+        "lib/netstandard2.0/Syncfusion.ExcelExport.Net.dll",
+        "lib/netstandard2.0/Syncfusion.ExcelExport.Net.xml",
+        "syncfusion.excelexport.net.core.20.1.0.61.nupkg.sha512",
+        "syncfusion.excelexport.net.core.nuspec",
         "syncfusion_logo.png"
       ]
     },
@@ -7711,10 +7794,10 @@
         "syncfusion_logo.png"
       ]
     },
-    "Syncfusion.PdfExport.Net.Core/20.1.0.60": {
-      "sha512": "XonIVJs3XsydUhxqwHs07FrUxkl/uc+5PYgpfHSt0sNUVcf41Fmyp1cLAZiKLGD+cKRvcevfUo2cqT50H3uBhg==",
+    "Syncfusion.PdfExport.Net.Core/20.1.0.61": {
+      "sha512": "N4LZYoi8viXHq0YzP4xe/672uFpOvu4XQ5N1orf2UEGLe7Kv3u4RCWdh1oXrZIkgOxJRHJru2e+KXNVqz1oXQQ==",
       "type": "package",
-      "path": "syncfusion.pdfexport.net.core/20.1.0.60",
+      "path": "syncfusion.pdfexport.net.core/20.1.0.61",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7723,7 +7806,7 @@
         "lib/net5.0/Syncfusion.PdfExport.Net.xml",
         "lib/netstandard2.0/Syncfusion.PdfExport.Net.dll",
         "lib/netstandard2.0/Syncfusion.PdfExport.Net.xml",
-        "syncfusion.pdfexport.net.core.20.1.0.60.nupkg.sha512",
+        "syncfusion.pdfexport.net.core.20.1.0.61.nupkg.sha512",
         "syncfusion.pdfexport.net.core.nuspec",
         "syncfusion_logo.png"
       ]
@@ -10714,11 +10797,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Server\\StocksPage.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Server\\StocksPage.Server.csproj",
       "projectName": "StocksPage.Server",
-      "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Server\\StocksPage.Server.csproj",
+      "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Server\\StocksPage.Server.csproj",
       "packagesPath": "C:\\Users\\Dawid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dawid\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10735,11 +10818,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj": {
-              "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Client\\StocksPage.Client.csproj"
+            "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj": {
+              "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Client\\StocksPage.Client.csproj"
             },
-            "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
-              "projectPath": "C:\\Users\\Dawid\\source\\repos\\StocksPage\\StocksPage\\Shared\\StocksPage.Shared.csproj"
+            "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj": {
+              "projectPath": "C:\\Users\\Dawid\\Desktop\\cl\\StockSearcher\\StocksPage\\Shared\\StocksPage.Shared.csproj"
             }
           }
         }

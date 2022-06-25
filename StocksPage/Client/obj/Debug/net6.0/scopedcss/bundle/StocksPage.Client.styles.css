@@ -9,70 +9,15 @@ main[b-h5vdkg99k9] {
 }
 
 .title[b-h5vdkg99k9] {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 800;
     margin-bottom: 1rem;
 }
-/* /Pages/Watchlist.razor.rz.scp.css */
-main[b-8ud2l1z7jb] {
-    display: flex;
-    flex-direction: row;
-}
 
-.left[b-8ud2l1z7jb] {
-    display: flex;
-    flex-direction: column;
-    margin-right: 2rem;
-    align-items: flex-end;
-}
-
-.right[b-8ud2l1z7jb] {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.entry[b-8ud2l1z7jb] {
-    padding: 1rem;
-}
-
-#return--btn[b-8ud2l1z7jb] {
-    border: none;
-    color: white;
-    background: blue;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.1rem;
-    margin-top: 1.3rem;
-    transition: all .3s ease;
-}
-
-    #return--btn:hover[b-8ud2l1z7jb] {
-        transform: scale(1.1);
-    }
-
-label[b-8ud2l1z7jb] {
-    margin-right: 1.3rem;
-}
-
-img[b-8ud2l1z7jb] {
-    margin-top: 1rem;
-    width: 10rem;
-    align-self: center;
-    transition: all .3s ease;
-}
-
-    img:hover[b-8ud2l1z7jb] {
-        animation: animation-b-8ud2l1z7jb 2s linear infinite;
-    }
-
-@keyframes animation-b-8ud2l1z7jb {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+.loader[b-h5vdkg99k9] {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-ep1jjkz9fz] {
