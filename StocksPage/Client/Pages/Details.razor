@@ -1,4 +1,4 @@
-﻿@page "/Details/{stock}"
+﻿@page "/Dashboard/Details/{stock}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using Microsoft.AspNetCore.Authorization
 @using StocksPage.Client.Services
@@ -43,7 +43,7 @@ else
             }
         </div>
         <div class="info">
-            <SfButton CssClass="button-dsg" IconCss="e-icons e-check-small" Content="Add to watchlist" @onclick="addToWatchlist" IconPosition="IconPosition.Right"></SfButton>
+            <SfButton CssClass="button-dsg" IconCss="e-icons e-check-large" Content="Add to watchlist" @onclick="addToWatchlist" IconPosition="IconPosition.Right"></SfButton>
             @TickerDetail.Name @TickerDetail.Ticker
         </div>
         <div class="details">
@@ -108,6 +108,12 @@ else
 		<SfStockChart Title="@stock">
 			<StockChartCrosshairSettings Enable="true">
 			</StockChartCrosshairSettings>
+            <StockChartPeriods>
+                <StockChartPeriod IntervalType=RangeIntervalType.Days Interval="1" Text='1d'></StockChartPeriod>
+                <StockChartPeriod IntervalType=RangeIntervalType.Weeks Interval="1" Text='1w'></StockChartPeriod>
+                <StockChartPeriod IntervalType=RangeIntervalType.Months Interval="1" Text='1m'></StockChartPeriod>
+                <StockChartPeriod IntervalType=RangeIntervalType.Months Interval="3" Text='3m' Selected="true"></StockChartPeriod>
+            </StockChartPeriods>
             <StockChartTooltipSettings Enable="true">
             </StockChartTooltipSettings>
 				<StockChartPrimaryXAxis>
@@ -255,7 +261,7 @@ else
         align-items: left;
     }
     .button-dsg {
-        width: 13rem;
+        width: 15rem;
         background: #bc4749;
         border: none;
         border-radius: 5%;
@@ -334,7 +340,16 @@ else
                 TickerDetail = await stockService.GetTickerDetail(arg);
                 TickerChart = await stockService.GetTickerChart(arg);
 
-                var tickers = await stockService.GetTickerNames();
+                IEnumerable<TickerNameGet> tickers;
+                if(stockService.tickerNames == null || !stockService.tickerNames.Any())
+                {
+                    tickers = await stockService.GetTickerNames();
+                    stockService.tickerNames = tickers;
+                }
+                else
+                {
+                    tickers = stockService.tickerNames;
+                }
 
                 foreach(var t in tickers)
                 {
@@ -363,7 +378,7 @@ else
 
     public void onChange(ChangeEventArgs<string, TickerNameGet> args) 
     {
-        navigator.NavigateTo("/Details/" + args.Value, forceLoad: true);
+        navigator.NavigateTo("/Dashboard/Details/" + args.Value, forceLoad: true);
     } 
 
     public void navigateToArticle(string url)

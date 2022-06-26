@@ -11,16 +11,17 @@
 
 
 
-@if (Watchlists == null || !Watchlists.Any())
-{
-    <div class="container">
-        <div class="loader">Page is <span style="color:#bc4749">LOADING...</span> Please wait.</div>
-    </div>
-}
-else if (!isAuthenticated)
+
+@if (!isAuthenticated)
 {
     <div class="container">
         <div class="auth">User is <span style="color:#bc4749">NOT AUTHENTICATED</span> to see this watchlist</div>
+    </div>
+}
+else if (Watchlists == null || !Watchlists.Any())
+{
+    <div class="container">
+        <div class="loader">Page is <span style="color:#bc4749">LOADING...</span> Please wait.</div>
     </div>
 }
 else
@@ -49,7 +50,7 @@ else
                 <Template> 
                 @{ 
                     var ticker = (context as @WatchlistGet); 
-                                                <div><a rel='nofollow' href="Details/@ticker.Ticker" @onclick="(() => navigateToTicker(ticker.Ticker))">@ticker.Ticker</a></div> 
+                                                <div><a rel='nofollow' href="Dashboard/Details/@ticker.Ticker" @onclick="(() => navigateToTicker(ticker.Ticker))">@ticker.Ticker</a></div> 
                 }
                 </Template>
             </GridColumn>
@@ -81,7 +82,7 @@ else
         margin-bottom: 2rem;
     }
     .auth {
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 600;
         margin-bottom: 1rem;
     }
@@ -169,6 +170,6 @@ else
     }
     public void navigateToTicker(string tickerName)
     {
-        navigator.NavigateTo($"Details/{tickerName}");
+        navigator.NavigateTo($"Dashboard/Details/{tickerName}");
     }
 }

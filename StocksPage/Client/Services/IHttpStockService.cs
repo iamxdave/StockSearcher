@@ -4,6 +4,7 @@ namespace StocksPage.Client.Services
 {
     public interface IHttpStockService
     {
+        public IEnumerable<TickerNameGet> tickerNames { get; set; }
         public Task<TickerDetailGet> GetTickerDetail(string tickerName);
         public Task<IEnumerable<WatchlistGet>?> GetTickersFromWatchlist(string idUser);
         public Task<IEnumerable<TickerNameGet>> GetTickerNames();

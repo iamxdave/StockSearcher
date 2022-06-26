@@ -26,5 +26,6 @@
     protected override async Task OnInitializedAsync()
     {
         tickers = await stockService.GetTickerNames();
+        stockService.tickerNames = tickers;
     }
 }

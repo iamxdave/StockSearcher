@@ -5,10 +5,12 @@ namespace StocksPage.Client.Services
 {
     public class HttpStockService : IHttpStockService
     {
+        public IEnumerable<TickerNameGet> tickerNames { get; set; }
         private readonly HttpClient _httpClient;
         public HttpStockService(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            tickerNames = new List<TickerNameGet>();
         }
 
         public async Task<TickerDetailGet?> GetTickerDetail(string tickerName)

@@ -22,7 +22,7 @@ else
         <h1>Dashboard</h1>
         <div class="content">
             <p>Find a company:</p>
-            <SfAutoComplete CssClass="finder" TValue="string" TItem="TickerNameGet" Placeholder="Select stock" AllowCustom=false DataSource="@Tickers"  Width="1000px" PopupWidth="1000px" PopupHeight="400px">
+            <SfAutoComplete CssClass="finder" TValue="string" TItem="TickerNameGet" Placeholder="Select stock" AllowCustom=false DataSource="@Tickers"  Width="1000px" PopupWidth="1000px">
                 <AutoCompleteFieldSettings Value="Ticker"></AutoCompleteFieldSettings>
                 <AutoCompleteTemplates TItem="TickerNameGet">
                     <ItemTemplate>
@@ -111,7 +111,16 @@ else
     {
         try
         {
-            var tickers = await stockService.GetTickerNames();
+            IEnumerable<TickerNameGet> tickers;
+            if(stockService.tickerNames == null || !stockService.tickerNames.Any())
+            {
+                tickers = await stockService.GetTickerNames();
+                stockService.tickerNames = tickers;
+            }
+            else
+            {
+                tickers = stockService.tickerNames;
+            }      
 
             foreach(var t in tickers)
             {
@@ -133,6 +142,6 @@ else
 
     public async Task onChange(ChangeEventArgs<string, TickerNameGet> args) 
     {
-        navigator.NavigateTo("/Details/" + args.Value);
+        navigator.NavigateTo("/Dashboard/Details/" + args.Value);
     } 
 }
