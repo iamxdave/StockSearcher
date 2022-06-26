@@ -9,17 +9,18 @@
 @inject NavigationManager navigator
 @inject AuthenticationStateProvider authProvider
 
-@if (!isAuthenticated)
+
+
+@if (Watchlists == null || !Watchlists.Any())
+{
+    <div class="container">
+        <div class="loader">Page is <span style="color:#bc4749">LOADING...</span> Please wait.</div>
+    </div>
+}
+else if (!isAuthenticated)
 {
     <div class="container">
         <div class="auth">User is <span style="color:#bc4749">NOT AUTHENTICATED</span> to see this watchlist</div>
-    </div>
-}
-
-else if (Watchlists == null || !Watchlists.Any())
-{
-    <div class="container">
-        <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
     </div>
 }
 else

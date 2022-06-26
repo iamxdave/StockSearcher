@@ -1,9 +1,23 @@
 ﻿@page "/authentication/{action}"
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-<RemoteAuthenticatorView Action="@Action" />
-
 <div class="container">
-    <div class="loader">Page is <span style="color:#bc4749">AUTHORIZING</span>... Please wait.</div>
+    <RemoteAuthenticatorView Action="@Action">
+        <LogInFailed>
+            <div class="msg">Login was <span style="color:#bc4749">NOT SUCCESSFUL</span></div>
+        </LogInFailed>
+        <LogOut>
+            <div class="msg"><span style="color:#bc4749">CLOSING</span> your session</div>
+        </LogOut>
+        <LogOutSucceeded>
+            <div class="msg">Session has been <span style="color:#bc4749">CLOSED</span> successfully</div>
+        </LogOutSucceeded>
+        <LoggingIn>
+            <div class="msg"><span style="color:#bc4749">REDIRECTING</span> to the login screen</div>
+        </LoggingIn>
+        <CompletingLoggingIn>
+            <div class="msg">Login was <span style="color:#bc4749">SUCCESSFUL</span></div>
+        </CompletingLoggingIn>
+    </RemoteAuthenticatorView>
 </div>
 
 <style>
@@ -15,7 +29,7 @@
         flex-direction: column;
         font-size: 2rem;
     }
-    .loader {
+    .msg {
         font-size: 4rem;
         font-weight: 600;
         margin-bottom: 1rem;
