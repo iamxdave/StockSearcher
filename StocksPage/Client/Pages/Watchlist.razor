@@ -6,6 +6,7 @@
 
 @inject HttpClient Http
 @inject IJSRuntime js
+@inject NavigationManager navigator
 @inject AuthenticationStateProvider authProvider
 
 @if (!isAuthenticated)
@@ -33,19 +34,26 @@ else
                 <Template>
                     @{
                         var logo = (context as WatchlistGet);
-                                @if (logo.LogoUrl == null)
+                                        @if (logo.LogoUrl == null)
                         {
                             logo.LogoUrl = "https://www.pngmart.com/files/7/Stocks-Transparent-Background.png";
                         }
-                                <div class="img">
-                                    <img src="@logo.LogoUrl" />
-                                </div>
+                                        <div class="img">
+                                            <img src="@logo.LogoUrl" />
+                                        </div>
                     }
                 </Template>
             </GridColumn>
-            <GridColumn Field=@nameof(WatchlistGet.Ticker) HeaderText="Ticker" IsPrimaryKey="true" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+            <GridColumn HeaderText="Ticker" IsPrimaryKey="true" TextAlign="TextAlign.Center" Width="20">
+                <Template> 
+                @{ 
+                    var ticker = (context as @WatchlistGet); 
+                                                <div><a rel='nofollow' href="Details/@ticker.Ticker" @onclick="(() => navigateToTicker(ticker.Ticker))">@ticker.Ticker</a></div> 
+                }
+                </Template>
+            </GridColumn>
             <GridColumn Field=@nameof(WatchlistGet.Name) HeaderText="Name" TextAlign="TextAlign.Left" Width="100"></GridColumn>
-            <GridColumn Field=@nameof(WatchlistGet.Country) HeaderText="Country" TextAlign="TextAlign.Center" Width="20"></GridColumn>
+            <GridColumn Field=@nameof(WatchlistGet.Country) HeaderText="Locale" TextAlign="TextAlign.Center" Width="20"></GridColumn>
             <GridColumn Field=@nameof(WatchlistGet.Currency) HeaderText="Currency" TextAlign="TextAlign.Center" Width="20"></GridColumn>
             <GridColumn Field=@nameof(WatchlistGet.Cik) HeaderText="Cik" TextAlign="TextAlign.Center" Width="20"></GridColumn>
         </GridColumns>
@@ -77,13 +85,26 @@ else
         margin-bottom: 1rem;
     }
 
-    .e-grid .e-headercell .e-headercelldiv {
-        font-size: 1.2rem;
+    .e-grid tr.e-row:hover .e-rowcell:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
+        background-color: #6a994e !important;
     }
-
+    .e-grid .e-gridcontent .e-rowcell { 
+        background-color: #386641;
+        font-size: 1.3rem;
+    } 
     .e-grid .e-rowcell {
-        font-size: 1.4rem;
-    }
+        color: #f2e8cf !important;
+    } 
+    .e-grid .e-headercell { 
+        background-color: #bc4749; 
+    } 
+    .e-grid .e-headercell .e-headercelldiv { 
+        font-size: 20px;
+    } 
+    .e-headercell {         
+        color: #f2e8cf; 
+        font-weight: bold; 
+    } 
 
     label {
         margin-right: 1.3rem;
@@ -144,5 +165,9 @@ else
         {
             await DataGrid.CloseEditAsync();
         }
+    }
+    public void navigateToTicker(string tickerName)
+    {
+        navigator.NavigateTo($"Details/{tickerName}");
     }
 }

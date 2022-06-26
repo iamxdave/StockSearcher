@@ -32,6 +32,7 @@ namespace StocksPage.Server.Controllers
             {
                 Title = e.title,
                 PageName = e.publisher.name,
+                Url = e.article_url,
                 Created = e.published_utc
             });
         }

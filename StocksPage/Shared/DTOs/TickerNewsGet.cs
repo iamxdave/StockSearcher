@@ -10,6 +10,7 @@ namespace StocksPage.Shared.DTOs
     {
         public string Title { get; set; }
         public string PageName { get; set; }
+        public string Url { get; set; }
         public DateTime Created { get; set; }
     }
 }

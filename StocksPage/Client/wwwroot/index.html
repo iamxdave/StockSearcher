@@ -14,7 +14,11 @@
 </head>
 
 <body>
-    <div id="app">Loading...</div>
+    <div id="app">
+        <div class="container">
+            <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
+        </div>
+    </div>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.
@@ -26,3 +30,23 @@
 </body>
 
 </html>
+<style>
+    body {
+        background: #f2e8cf;
+    }
+
+    .container {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 2rem;
+    }
+
+    .loader {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+</style>

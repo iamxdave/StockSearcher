@@ -10,7 +10,7 @@
 @inject NavigationManager navigator
 @inject AuthenticationStateProvider authProvider
 
-@if (TickerChart == null || TickerDetail == null || !@areTickersRendered)
+@if(@TickerChart == null || @TickerDetail == null || !@areTickersRendered)
 {
     <div class="container">
         <div class="loader">Page is <span style="color:#bc4749">LOADING</span>... Please wait.</div>
@@ -103,45 +103,55 @@ else
             </SfTab>
                             
         </div>
-        <div class="chart">
-		    <SfStockChart Title="@stock">
-			    <StockChartCrosshairSettings Enable="true">
-			    </StockChartCrosshairSettings>
-				    <StockChartPrimaryXAxis>
-					    <StockChartAxisCrosshairTooltip Enable="true">
-					    </StockChartAxisCrosshairTooltip>
-				    </StockChartPrimaryXAxis>
-				    <StockChartPrimaryYAxis>
-					    <StockChartAxisCrosshairTooltip Enable="true">
-					    </StockChartAxisCrosshairTooltip>
-				    </StockChartPrimaryYAxis>
-		    <StockChartSeriesCollection>
-			    <StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@TickerChart"
-                XName="Date" High="High" Low="Low" Open="Open" Close="Close" Volume="Volume">
-			    </StockChartSeries>
-		    </StockChartSeriesCollection>
-		    <StockChartChartArea>
-				<StockChartChartAreaBorder Width="0"></StockChartChartAreaBorder>
-		    </StockChartChartArea>
-		    </SfStockChart>
-	    </div>
-        <div class="articles">
-            @if(@News != null && @News.Any())
-            {
-                <h1 class="title-a">Articles</h1>
-                <SfGrid TValue=@TickerNewsGet DataSource="@News" RowHeight="60" AllowSorting="true">
-                    <GridPageSettings PageSize="5"></GridPageSettings>
-                    <GridColumns>
-                        <GridColumn Field=@nameof(TickerNewsGet.Title) HeaderText="Title" TextAlign="TextAlign.Left" Width="120"></GridColumn>
-                        <GridColumn Field=@nameof(TickerNewsGet.PageName) HeaderText="Name of page" TextAlign="TextAlign.Left" Width="20"></GridColumn>
-                        <GridColumn Field=@nameof(TickerNewsGet.Created) HeaderText="Created" TextAlign="TextAlign.Center" Format="d" Width="40"></GridColumn>
-                    </GridColumns>
-                </SfGrid>  
-            }
-        </div>
+    </div>
+    <div>
+		<SfStockChart Title="@stock">
+			<StockChartCrosshairSettings Enable="true">
+			</StockChartCrosshairSettings>
+            <StockChartTooltipSettings Enable="true">
+            </StockChartTooltipSettings>
+				<StockChartPrimaryXAxis>
+					<StockChartAxisCrosshairTooltip Enable="true">
+					</StockChartAxisCrosshairTooltip>
+				</StockChartPrimaryXAxis>
+				<StockChartPrimaryYAxis>
+					<StockChartAxisCrosshairTooltip Enable="true">
+					</StockChartAxisCrosshairTooltip>
+				</StockChartPrimaryYAxis>
+		<StockChartSeriesCollection>
+			<StockChartSeries Type="@ChartSeriesType.Candle" DataSource="@TickerChart"
+            XName="Date" High="High" Low="Low" Open="Open" Close="Close" Volume="Volume">
+			</StockChartSeries>
+		</StockChartSeriesCollection>
+		<StockChartChartArea>
+			<StockChartChartAreaBorder Width="0"></StockChartChartAreaBorder>
+		</StockChartChartArea>
+		</SfStockChart>
+	</div>
+    <div class="articles">
+        @if(@News != null && @News.Any())
+        {
+            <h1 class="title-a">Articles</h1>
+            <SfGrid TValue=@TickerNewsGet DataSource="@News" RowHeight="60" AllowSorting="true">
+                <GridPageSettings PageSize="5"></GridPageSettings>
+                <SelectionStyleComponent>
+                </SelectionStyleComponent>
+                <GridColumns>
+                    <GridColumn HeaderText="Title" TextAlign="TextAlign.Left" Width="120">
+                        <Template> 
+                        @{ 
+                            var news = (context as @TickerNewsGet); 
+                                                <div><a rel='nofollow' href="#" @onclick="(() => navigateToArticle(news.Url))">@news.Title</a></div> 
+                        }
+                        </Template>
+                    </GridColumn>
+                    <GridColumn Field=@nameof(TickerNewsGet.PageName) HeaderText="Name" TextAlign="TextAlign.Left" Width="20"></GridColumn>
+                    <GridColumn Field=@nameof(TickerNewsGet.Created) HeaderText="Created" TextAlign="TextAlign.Center" Format="d" Width="40"></GridColumn>
+                </GridColumns>
+            </SfGrid>  
+        }
     </div>
 
- 
 }
 <style>
     body {
@@ -172,19 +182,12 @@ else
     .dashboard {
         display: grid;
         width: 85vw;
-        grid-template-rows: .5fr 1fr 1fr 1fr .3fr;
-        grid-template-columns: 1fr 1fr 2fr 1fr .3fr;
+        grid-template-rows: .5fr 4.5fr .5fr;
+        grid-template-columns: 1fr 1fr 2fr;
         row-gap: 15px;
         column-gap: 50px;
         justify-items: center;
         align-items: center;
-    }
-    .chart {
-        grid-column: 1/5;
-        grid-row: 3/4;
-        width: 1000px;
-        justify-self: left;
-        align-self: left;
     }
     .logo-img {
          height: auto; 
@@ -215,7 +218,6 @@ else
         background: #386641 !important;
         color: #f2e8cf;
         font-size: 1.3rem;
-        font-color: white;
         margin-bottom: 15px;
         border-top: 2px solid white;
         text-align: justify;
@@ -266,15 +268,33 @@ else
         background: #fc8385;
     }
     .articles {
-        grid-column: 1/3;
-        grid-row: 4/5;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
+    .e-grid tr.e-row:hover .e-rowcell:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
+        background-color: #6a994e !important;
+    }
+    .e-grid .e-gridcontent .e-rowcell { 
+        background-color: #386641;
+        font-size: 1.3rem;
+    } 
+    .e-grid .e-rowcell {
+        color: #f2e8cf !important;
+    } 
+    .e-grid .e-headercell { 
+        background-color: #bc4749; 
+    } 
     .e-grid .e-headercell .e-headercelldiv { 
-        font-size: 1.2rem;
+        font-size: 20px;
     } 
-    .e-grid .e-rowcell { 
-        font-size: 1.4rem; 
+    .e-headercell {         
+        color: #f2e8cf; 
+        font-weight: bold; 
     } 
+    a {
+        text-decoration: none;
+    }
+
 </style>
 
 
@@ -345,4 +365,9 @@ else
     {
         navigator.NavigateTo("/Details/" + args.Value, forceLoad: true);
     } 
+
+    public void navigateToArticle(string url)
+    {
+        navigator.NavigateTo(url);
+    }
 }
