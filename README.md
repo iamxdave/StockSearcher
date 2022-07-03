@@ -23,6 +23,7 @@
       </ul>
     </li>
     <li><a href="#how-does-it-work-">How does it work 📔</a></li>
+    <li><a href="#visualization-">How does it work 📔</a></li>
     <li><a href="#contributing-heart">Contributing ❤️</a></li>
     <li><a href="#license-">License 📝</a></li>
     <li><a href="#contact-">Contact ☎</a></li>
