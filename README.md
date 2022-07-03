@@ -31,7 +31,9 @@
 
 <!-- ABOUT -->
 ## About 🤔
-Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
+<p style='text-align: justify;'>Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
+</p>
+
 
 ### Built With 
 
