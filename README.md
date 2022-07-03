@@ -169,4 +169,4 @@ cd StockSearcher
 
 dawidwrobelx@gmail.com
 
-Project Link: [https://github.com/xDejw/StockSearcher](https://github.com/iamxdave/StockSearcher)
+Project Link: [https://github.com/iamxdave/StockSearcher](https://github.com/iamxdave/StockSearcher)
