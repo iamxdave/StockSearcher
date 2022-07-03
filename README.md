@@ -1,4 +1,6 @@
-# StockSearcher 📈
+<p align="center">
+  # StockSearcher 📈
+</p>
 
 <!-- ABOUT -->
 ## About 🤔
