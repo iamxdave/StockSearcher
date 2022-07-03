@@ -123,20 +123,13 @@ cd StockSearcher
 
 ![Dashboard](https://user-images.githubusercontent.com/74014874/177060019-873e4931-7c6c-4199-9bfd-20734445771e.png)
 
-![image](https://user-images.githubusercontent.com/74014874/175778757-ce1415ee-4d41-42f6-859f-4a9d839b50d1.png)
-
   _There it is. We can read a basic information about the stock, check the description, add to private watchlist, check stock and pick date or search through newest articles._ 
 
 ![Details-Top](https://user-images.githubusercontent.com/74014874/177060035-58b4a95f-1dae-43b4-90d1-0f09a2596dfc.png)
 ![Articles](https://user-images.githubusercontent.com/74014874/177060058-6b0a4af1-a47b-4bb8-9b29-a5a0f7b69a74.png)
 
-![image](https://user-images.githubusercontent.com/74014874/175795831-f2c7b882-78a0-4ee0-a356-4d99ea15b936.png)
-![image](https://user-images.githubusercontent.com/74014874/175795894-21ef0a17-ffb5-414e-beec-6908273533ef.png)
-
  _And of course the watchlist with all added stocks_
 ![Watchlist](https://user-images.githubusercontent.com/74014874/177060068-54c75e49-892b-4958-8cca-ed13a25ff9d1.png)
-
-![image](https://user-images.githubusercontent.com/74014874/175795865-3d984da1-4f71-426c-a767-822d5db2da18.png)
 
 <br/>
 
