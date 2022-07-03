@@ -129,6 +129,7 @@ cd StockSearcher
 ![Articles](https://user-images.githubusercontent.com/74014874/177060058-6b0a4af1-a47b-4bb8-9b29-a5a0f7b69a74.png)
 
  _And of course the watchlist with all added stocks_
+
 ![Watchlist](https://user-images.githubusercontent.com/74014874/177060068-54c75e49-892b-4958-8cca-ed13a25ff9d1.png)
 
 <br/>
