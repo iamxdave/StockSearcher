@@ -10,22 +10,22 @@
   <summary><h2 style="display: inline-block">Table of Contents :page_with_curl:</h2></summary>
   <ol>
     <li>
-      <a href="#about-🤔">About 🤔 </a>
+      <a href="#about">About 🤔 </a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started-🚀">Getting started 🚀</a>
+      <a href="#getting-started">Getting started 🚀</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#how-does-it-work-📔">How does it work 📔</a></li>
-    <li><a href="#contributing-❤️">Contributing ❤️</a></li>
-    <li><a href="#license-📝">License 📝</a></li>
-    <li><a href="#contact-☎">Contact ☎</a></li>
+    <li><a href="#how-does-it-work">How does it work 📔</a></li>
+    <li><a href="#contributing">Contributing ❤️</a></li>
+    <li><a href="#license">License 📝</a></li>
+    <li><a href="#contact">Contact ☎</a></li>
   </ol>
 </details>
 
