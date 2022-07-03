@@ -17,6 +17,8 @@
 * Polygon.io 
 * Syncfusion
 
+<br/>
+
 <!-- GETTING STARTED -->
 ## Getting started 🚀
 
