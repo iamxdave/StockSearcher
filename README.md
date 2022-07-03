@@ -23,7 +23,7 @@
       </ul>
     </li>
     <li><a href="#how-does-it-work-">How does it work 📔</a></li>
-    <li><a href="#contributing-❤">Contributing ❤️</a></li>
+    <li><a href="#contributing-heart">Contributing ❤️</a></li>
     <li><a href="#license-">License 📝</a></li>
     <li><a href="#contact-">Contact ☎</a></li>
   </ol>
@@ -129,7 +129,7 @@ cd StockSearcher
 <br/>
 
 <!-- CONTRIBUTING -->
-## Contributing ❤️
+## Contributing :heart:
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
