@@ -23,7 +23,7 @@
       </ul>
     </li>
     <li><a href="#how-does-it-work-">How does it work 📔</a></li>
-    <li><a href="#visualization-">How does it work 📔</a></li>
+    <li><a href="#visualization-camera-with-a-guide-">How does it work 📔</a></li>
     <li><a href="#contributing-heart">Contributing ❤️</a></li>
     <li><a href="#license-">License 📝</a></li>
     <li><a href="#contact-">Contact ☎</a></li>
@@ -110,7 +110,7 @@ cd StockSearcher
 <br/>
 
 <!-- VISUALIZATION AND GUIDE -->
-## Visualization 📸 and a guide 📙
+## Visualization :camera: with a guide 📙
 
   _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
 
