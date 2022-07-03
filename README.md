@@ -119,9 +119,6 @@ cd StockSearcher
   
 ![Register|Login](https://user-images.githubusercontent.com/74014874/177060318-a37aab3c-b824-4be8-a3d3-edd6454e0305.png)
 
-![Register](https://user-images.githubusercontent.com/74014874/177059952-703f5d4e-a907-4ae6-a4bb-d4ec326510c4.png)
-![Login](https://user-images.githubusercontent.com/74014874/177059988-6a538e9f-9fa6-4629-bf3b-1ab0b0730136.png)
-
   _After we are logged in we can freely use all the functionalities of the page. We may enter a dashboard and select a stock from the list._
 
 ![Dashboard](https://user-images.githubusercontent.com/74014874/177060019-873e4931-7c6c-4199-9bfd-20734445771e.png)
