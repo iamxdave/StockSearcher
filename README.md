@@ -116,6 +116,9 @@ cd StockSearcher
 ![Home](https://user-images.githubusercontent.com/74014874/177059896-fdf78d1f-d73a-4b1f-9713-3db8c2f75351.png)
 
   _There are also images for register and login redirects._
+  
+![Register|Login](https://user-images.githubusercontent.com/74014874/177060318-a37aab3c-b824-4be8-a3d3-edd6454e0305.png)
+
 ![Register](https://user-images.githubusercontent.com/74014874/177059952-703f5d4e-a907-4ae6-a4bb-d4ec326510c4.png)
 ![Login](https://user-images.githubusercontent.com/74014874/177059988-6a538e9f-9fa6-4629-bf3b-1ab0b0730136.png)
 
