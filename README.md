@@ -55,13 +55,13 @@
 1. Use your command line and clone the repository:
 
  ```
- git clone https://github.com/Zacer559/Cloudflare-DDNS-bash-script
+ git clone https://github.com/xDejw/StockSearcher.git
 ```
 
  
-2. Go to folder which you cloned: 
+2. Go to the clonned folder: 
 ```
-cd Cloudflare-DDNS-bash-script
+cd StockSearcher
 ```
 3. Open the repository in any development environment
 
