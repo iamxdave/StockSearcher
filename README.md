@@ -13,7 +13,7 @@ Application is the result of a project from my university and was made by myself
 * Syncfusion
 
 <!-- GETTING STARTED -->
-@@ Getting started 🚀
+## Getting started 🚀
 
 ### Prerequisites
 
@@ -22,10 +22,10 @@ Application is the result of a project from my university and was made by myself
     > https://github.com/git-guides/install-git
 * [.NET](https://docs.microsoft.com/pl-pl/dotnet/)
   * Packages should be installed automatically, but in case they don't install nugget package manager and following packages
-  * ```Microsoft.AspNetCore```
-  * ```Microsoft.EntityFrameworkCore.Design```
-  * ```Microsoft.EntityFrameworkCore.Tools```
-  * ```Microsoft.EntityFrameworkCore.SqlServer```
+   - ```Microsoft.AspNetCore```
+   - ```Microsoft.EntityFrameworkCore.Design```
+   - ```Microsoft.EntityFrameworkCore.Tools```
+   - ```Microsoft.EntityFrameworkCore.SqlServer```
 * [Polygon.io](https://polygon.io/)
   * To search stocks external api is needed. It is important to register on
     > https://polygon.io/dashboard/signup
@@ -35,12 +35,12 @@ Application is the result of a project from my university and was made by myself
   * To fully use a website without any watermarks an API key from Syncfusion is needed. You may register here
     > https://www.syncfusion.com/account/register
   * If in some way Syncfusion packages are not loaded, you need to install these ones
-  * ```Syncfusion.Blazor.Buttons```
-  * ```Syncfusion.Blazor.DropDowns```
-  * ```Syncfusion.Blazor.Grid```
-  * ```Syncfusion.BlazorNavigations```
-  * ```Syncfusion.Blazor.StockChart```
-  * ```Syncfusion.Themes```
+   - ```Syncfusion.Blazor.Buttons```
+   - ```Syncfusion.Blazor.DropDowns```
+   - ```Syncfusion.Blazor.Grid```
+   - ```Syncfusion.BlazorNavigations```
+   - ```Syncfusion.Blazor.StockChart```
+   - ```Syncfusion.Themes```
 
 ### Important!
 **API is connected to my database by default and to set up yours you need to change ConnectionString in the file _appsettings.json_**
@@ -97,10 +97,14 @@ cd Cloudflare-DDNS-bash-script
 
 ![image](https://user-images.githubusercontent.com/74014874/175795865-3d984da1-4f71-426c-a767-822d5db2da18.png)
 
+<br/>
+
 <!-- CONTRIBUTING -->
 ## Contributing :heart:
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+<br/>
 
 <!-- LICENSE -->
 ## License :page_facing_up:
@@ -119,6 +123,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+<br/>
 
 <!-- CONTACT -->
 ## Contact ☎
