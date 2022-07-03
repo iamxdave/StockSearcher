@@ -6,7 +6,7 @@
 <p align="center">
  Application was made to search stocks from the database and from an external API using Razor Pages, EntityFrameworkCore and Syncfusion.
  Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
- **The application meets the assumptions of SOLID, DI and DRY.**
+ <b>The application meets the assumptions of SOLID, DI and DRY.</b>
 </p>
  
 ### Built With 
