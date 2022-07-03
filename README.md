@@ -113,23 +113,28 @@ cd StockSearcher
 
   _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
 
-![image](https://user-images.githubusercontent.com/74014874/175778658-35526d3c-f767-4bec-9fe9-45e0ac93ada8.png)
+![Home](https://user-images.githubusercontent.com/74014874/177059896-fdf78d1f-d73a-4b1f-9713-3db8c2f75351.png)
 
   _There are also images for register and login redirects._
-
-![image](https://user-images.githubusercontent.com/74014874/175778698-e20f28e9-9fde-421b-87fc-4de8bfd7dff8.png)
-![image](https://user-images.githubusercontent.com/74014874/175778725-eb5f78c4-1300-4917-bb46-ce77a693d401.png)
+![Register](https://user-images.githubusercontent.com/74014874/177059952-703f5d4e-a907-4ae6-a4bb-d4ec326510c4.png)
+![Login](https://user-images.githubusercontent.com/74014874/177059988-6a538e9f-9fa6-4629-bf3b-1ab0b0730136.png)
 
   _After we are logged in we can freely use all the functionalities of the page. We may enter a dashboard and select a stock from the list._
+
+![Dashboard](https://user-images.githubusercontent.com/74014874/177060019-873e4931-7c6c-4199-9bfd-20734445771e.png)
 
 ![image](https://user-images.githubusercontent.com/74014874/175778757-ce1415ee-4d41-42f6-859f-4a9d839b50d1.png)
 
   _There it is. We can read a basic information about the stock, check the description, add to private watchlist, check stock and pick date or search through newest articles._ 
 
+![Details-Top](https://user-images.githubusercontent.com/74014874/177060035-58b4a95f-1dae-43b4-90d1-0f09a2596dfc.png)
+![Articles](https://user-images.githubusercontent.com/74014874/177060058-6b0a4af1-a47b-4bb8-9b29-a5a0f7b69a74.png)
+
 ![image](https://user-images.githubusercontent.com/74014874/175795831-f2c7b882-78a0-4ee0-a356-4d99ea15b936.png)
 ![image](https://user-images.githubusercontent.com/74014874/175795894-21ef0a17-ffb5-414e-beec-6908273533ef.png)
 
  _And of course the watchlist with all added stocks_
+![Watchlist](https://user-images.githubusercontent.com/74014874/177060068-54c75e49-892b-4958-8cca-ed13a25ff9d1.png)
 
 ![image](https://user-images.githubusercontent.com/74014874/175795865-3d984da1-4f71-426c-a767-822d5db2da18.png)
 
