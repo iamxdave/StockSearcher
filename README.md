@@ -29,7 +29,7 @@ Application is the result of a project from my university and was made by myself
 * [Polygon.io](https://polygon.io/)
   * To search stocks external api is needed. It is important to register on
     > https://polygon.io/dashboard/signup
-    and put an API key in the _appsettings.json_ file or also in a better, more securate place.
+  * and put an API key in the _appsettings.json_ file or also in a better, more securate place.
 * [Syncfusion](https://www.syncfusion.com/)
   * Syncfusion is a software package for creating components and frameworks for e.g. Blazor and makes developers' work easier.
   * To fully use a website without any watermarks an API key from Syncfusion is needed. You may register here
