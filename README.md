@@ -2,10 +2,13 @@
 
 <!-- ABOUT -->
 ## About 🤔
-Application was made to search stocks from the database and from an external API using Razor Pages, EntityFrameworkCore and Syncfusion models.
-Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.
-**The application meets the assumptions of SOLID, DI and DRY.**
 
+<p align="center">
+ Application was made to search stocks from the database and from an external API using Razor Pages, EntityFrameworkCore and Syncfusion models.
+ Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.
+ **The application meets the assumptions of SOLID, DI and DRY.**
+</p>
+ 
 ### Built With 
 
 * C#, .NET, Blazor
