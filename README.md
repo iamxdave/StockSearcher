@@ -1,5 +1,5 @@
 <p align="center">
-  <h1>StockSearcher 📈</h1>
+  <h1 align="center">StockSearcher 📈</h1>
 </p>
 
 <!-- ABOUT -->
