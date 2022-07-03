@@ -11,8 +11,8 @@ Application is the result of a project from my university and was made by myself
 
 ## How does it work
 
-  _Application creates a stock tickers database for all of the current companies and stores the instances for passing them to the application user._
-  _Application also creates individual accounts for all the users and allows them to save their searched stocks in the watchlist._
+  Application creates a stock tickers database for all of the current companies and stores the instances for passing them to the application user.
+  Application also creates individual accounts for all the users and allows them to save their searched stocks in the watchlist.
   
   _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
 
