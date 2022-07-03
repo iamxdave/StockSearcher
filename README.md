@@ -4,9 +4,9 @@
 ## About 🤔
 
 <p align="center">
- Application was made to search stocks from the database and from an external API using Razor Pages, EntityFrameworkCore and Syncfusion.
+ Application was made to search stocks from the database and from an external API using <b>Razor Pages, EntityFrameworkCore</b> and <b>Syncfusion</b>.
  Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
- <b>The application meets the assumptions of SOLID, DI and DRY.</b>
+ The application meets the assumptions of <b>SOLID, DI</b> and <b>DRY</b>.
 </p>
  
 ### Built With 
