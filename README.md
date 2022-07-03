@@ -1,6 +1,6 @@
-<p align="center">
-  <h1 align="center">StockSearcher 📈</h1>
-</p>
+<h1 align="center">StockSearcher 📈</h1>
+
+<br/>
 
 <!-- ABOUT -->
 ## About 🤔
