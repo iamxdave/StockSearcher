@@ -31,8 +31,8 @@
 
 <!-- ABOUT -->
 ## About 🤔
-<p style='text-align: justify;'>Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
-</p>
+Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.<br/>
+
 
 
 ### Built With 
@@ -74,9 +74,9 @@
    - ```Syncfusion.Themes```
 
 ### Important!
-<p style='text-align: justify;'>
- <b>API is connected to my database by default and to set up yours you need to change ConnectionString in the file <i>appsettings.json</i></b><br/>
-</p>
+
+**API is connected to my database by default and to set up yours you need to change ConnectionString in the file _appsettings.json_**<br/>
+
 
 
 <br/>
@@ -100,7 +100,7 @@ cd StockSearcher
 
 <!-- HOW DOES IT WORK-->
 ## How does it work 📔
-<p style='text-align: justify;'>
+<p>
   Application creates a stock tickers database for all of the current companies and stores the instances for passing them to the application user.
   Application also creates individual accounts for all the users and allows them to save their searched stocks in the watchlist.
 </p>
@@ -110,34 +110,34 @@ cd StockSearcher
 
 <!-- VISUALIZATION AND GUIDE -->
 ## Visualization 📸 and a guide 📙
-<p style='text-align: justify;'>
+
   _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
-</p>
+
 ![image](https://user-images.githubusercontent.com/74014874/175778658-35526d3c-f767-4bec-9fe9-45e0ac93ada8.png)
-<p style='text-align: justify;'>
+
   _There are also images for register and login redirects._
-</p>
+
 ![image](https://user-images.githubusercontent.com/74014874/175778698-e20f28e9-9fde-421b-87fc-4de8bfd7dff8.png)
 ![image](https://user-images.githubusercontent.com/74014874/175778725-eb5f78c4-1300-4917-bb46-ce77a693d401.png)
-<p style='text-align: justify;'>
+
   _After we are logged in we can freely use all the functionalities of the page. We may enter a dashboard and select a stock from the list._
- </p>
+
 ![image](https://user-images.githubusercontent.com/74014874/175778757-ce1415ee-4d41-42f6-859f-4a9d839b50d1.png)
-<p style='text-align: justify;'>
+
   _There it is. We can read a basic information about the stock, check the description, add to private watchlist, check stock and pick date or search through newest articles._ 
-</p> 
+
 ![image](https://user-images.githubusercontent.com/74014874/175795831-f2c7b882-78a0-4ee0-a356-4d99ea15b936.png)
 ![image](https://user-images.githubusercontent.com/74014874/175795894-21ef0a17-ffb5-414e-beec-6908273533ef.png)
-<p style='text-align: justify;'> 
+
  _And of course the watchlist with all added stocks_
-</p> 
+
 ![image](https://user-images.githubusercontent.com/74014874/175795865-3d984da1-4f71-426c-a767-822d5db2da18.png)
 
 <br/>
 
 <!-- CONTRIBUTING -->
 ## Contributing :heart:
-<p style='text-align: justify;'> 
+<p> 
  Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 </p>
 
@@ -145,7 +145,7 @@ cd StockSearcher
 
 <!-- LICENSE -->
 ## License 📝
-<p style='text-align: justify;'> 
+<p> 
  Copyright 2022 xDejw
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -155,7 +155,7 @@ cd StockSearcher
 
 > http://www.apache.org/licenses/LICENSE-2.0
 
-<p style='text-align: justify;'> 
+<p> 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
