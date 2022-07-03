@@ -1,19 +1,80 @@
-# StockSearcher
+# StockSearcher 📈
 
+<!-- ABOUT -->
+## About 🤔
 Application was made to search stocks from the database and from an external API using Razor Pages, EntityFrameworkCore and Syncfusion models.
-<br>
-<br>
-Application is the result of a project from my university and was made by myself without any further knowledge about Blazor.</a>.app</a>.
-<br>
-<br>
-<b>The application meets the assumptions of SOLID, DI and DRY</b>.
-<hr>
+Application is the result of a project from my university and was made by myself without any further knowledge about Blazor 🤷.
+**The application meets the assumptions of SOLID, DI and DRY.**
 
-## How does it work
+### Built With 
+
+* C#, .NET, Blazor
+* Polygon.io 
+* Syncfusion
+
+<!-- GETTING STARTED -->
+@@ Getting started 🚀
+
+### Prerequisites
+
+* [Git](https://git-scm.com/) 
+  * Follow the guide
+    > https://github.com/git-guides/install-git
+* [.NET](https://docs.microsoft.com/pl-pl/dotnet/)
+  * Packages should be installed automatically, but in case they don't install nugget package manager and following packages
+  * ```Microsoft.AspNetCore```
+  * ```Microsoft.EntityFrameworkCore.Design```
+  * ```Microsoft.EntityFrameworkCore.Tools```
+  * ```Microsoft.EntityFrameworkCore.SqlServer```
+* [Polygon.io](https://polygon.io/)
+  * To search stocks external api is needed. It is important to register on
+    > https://polygon.io/dashboard/signup
+    and put an API key in the _appsettings.json_ file or also in a better, more securate place.
+* [Syncfusion](https://www.syncfusion.com/)
+  * Syncfusion is a software package for creating components and frameworks for e.g. Blazor and makes developers' work easier.
+  * To fully use a website without any watermarks an API key from Syncfusion is needed. You may register here
+    > https://www.syncfusion.com/account/register
+  * If in some way Syncfusion packages are not loaded, you need to install these ones
+  * ```Syncfusion.Blazor.Buttons```
+  * ```Syncfusion.Blazor.DropDowns```
+  * ```Syncfusion.Blazor.Grid```
+  * ```Syncfusion.BlazorNavigations```
+  * ```Syncfusion.Blazor.StockChart```
+  * ```Syncfusion.Themes```
+
+### Important!
+**API is connected to my database by default and to set up yours you need to change ConnectionString in the file _appsettings.json_**
+
+<br/>
+
+### Installation
+
+1. Use your command line and clone the repository:
+
+ ```
+ git clone https://github.com/Zacer559/Cloudflare-DDNS-bash-script
+```
+
+ 
+2. Go to folder which you cloned: 
+```
+cd Cloudflare-DDNS-bash-script
+```
+3. Open the repository in any development environment
+
+<br/>
+
+<!-- HOW DOES IT WORK-->
+## How does it work 📔
 
   Application creates a stock tickers database for all of the current companies and stores the instances for passing them to the application user.
   Application also creates individual accounts for all the users and allows them to save their searched stocks in the watchlist.
-  
+
+<br/>
+
+<!-- VISUALIZATION AND GUIDE -->
+## Visualization 📸 and a guide 📙
+
   _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
 
 ![image](https://user-images.githubusercontent.com/74014874/175778658-35526d3c-f767-4bec-9fe9-45e0ac93ada8.png)
@@ -31,16 +92,37 @@ Application is the result of a project from my university and was made by myself
   
 ![image](https://user-images.githubusercontent.com/74014874/175795831-f2c7b882-78a0-4ee0-a356-4d99ea15b936.png)
 ![image](https://user-images.githubusercontent.com/74014874/175795894-21ef0a17-ffb5-414e-beec-6908273533ef.png)
-
-  _Here is another example._
-  
-![image](https://user-images.githubusercontent.com/74014874/175795846-4325fc84-e16a-4958-befe-a25a1898691b.png)
-![image](https://user-images.githubusercontent.com/74014874/175795860-7978e56b-25c2-42e9-8d46-d9f5d44e68a4.png)
  
  _And of course the watchlist with all added stocks_
 
 ![image](https://user-images.githubusercontent.com/74014874/175795865-3d984da1-4f71-426c-a767-822d5db2da18.png)
 
+<!-- CONTRIBUTING -->
+## Contributing :heart:
 
-_*API is connected to my database by default and to set up yours you need to change ConnectionString in the file appsettings.json*_
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
+<!-- LICENSE -->
+## License :page_facing_up:
+
+Copyright 2022 xDejw
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+<!-- CONTACT -->
+## Contact ☎
+
+dawidwrobelx@gmail.com
+
+Project Link: [https://github.com/xDejw/StockSearcher](https://github.com/xDejw/StockSearcher)
