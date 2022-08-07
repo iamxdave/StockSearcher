@@ -38,7 +38,7 @@ Application is the result of a project from my university and was made by myself
 
 ### Built With 
 
-* [C#](https://pl.wikipedia.org/wiki/C_Sharp), [.NET](https://docs.microsoft.com/pl-pl/dotnet/), [Blazor](https://docs.microsoft.com/pl-pl/aspnet/core/blazor/?view=aspnetcore-6.0)
+* [C#](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)), [.NET](https://docs.microsoft.com/en-us/dotnet/), [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0)
 * [Polygon.io](https://polygon.io/)
 * [Syncfusion](https://www.syncfusion.com/)
 
@@ -87,7 +87,7 @@ Application is the result of a project from my university and was made by myself
 1. Use your command line and clone the repository:
 
  ```
- git clone https://github.com/xDejw/StockSearcher.git
+ git clone https://github.com/iamxdave/StockSearcher.git
 ```
 
  
@@ -146,7 +146,7 @@ cd StockSearcher
 <!-- LICENSE -->
 ## License 📝
 <p> 
- Copyright 2022 xDejw
+ Copyright 2022 iamxdave
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
