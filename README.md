@@ -53,11 +53,11 @@ Application is the result of a project from my university and was made by myself
   * Follow the guide
     > https://github.com/git-guides/install-git
 * [.NET](https://docs.microsoft.com/pl-pl/dotnet/)
-  * Packages should be installed automatically, but in case they don't install nugget package manager and following packages
-   - ```Microsoft.AspNetCore```
-   - ```Microsoft.EntityFrameworkCore.Design```
-   - ```Microsoft.EntityFrameworkCore.Tools```
-   - ```Microsoft.EntityFrameworkCore.SqlServer```
+  * Packages should be installed automatically, but in case they don't install nugget package manager and following packages:
+    - ```Microsoft.AspNetCore```
+    - ```Microsoft.EntityFrameworkCore.Design```
+    - ```Microsoft.EntityFrameworkCore.Tools```
+    - ```Microsoft.EntityFrameworkCore.SqlServer```
 * [Polygon.io](https://polygon.io/)
   * To search stocks external api is needed. It is important to register on
     > https://polygon.io/dashboard/signup
@@ -67,12 +67,12 @@ Application is the result of a project from my university and was made by myself
   * To fully use a website without any watermarks an API key from Syncfusion is needed. You may register here
     > https://www.syncfusion.com/account/register
   * If in some way Syncfusion packages are not loaded, you need to install these ones
-   - ```Syncfusion.Blazor.Buttons```
-   - ```Syncfusion.Blazor.DropDowns```
-   - ```Syncfusion.Blazor.Grid```
-   - ```Syncfusion.BlazorNavigations```
-   - ```Syncfusion.Blazor.StockChart```
-   - ```Syncfusion.Themes```
+    - ```Syncfusion.Blazor.Buttons```
+    - ```Syncfusion.Blazor.DropDowns```
+    - ```Syncfusion.Blazor.Grid```
+    - ```Syncfusion.BlazorNavigations```
+    - ```Syncfusion.Blazor.StockChart```
+    - ```Syncfusion.Themes```
 
 ### Important!
 
@@ -101,7 +101,7 @@ cd StockSearcher
 
 <!-- HOW DOES IT WORK-->
 ## How does it work 📔
-<p>
+<p align="justify">
   Application creates a stock tickers database for all of the current companies and stores the instances for passing them to the application user.
   Application also creates individual accounts for all the users and allows them to save their searched stocks in the watchlist.
 </p>
@@ -145,7 +145,7 @@ cd StockSearcher
 
 <!-- LICENSE -->
 ## License 📝
-<p> 
+<p align="justify"> 
  Copyright 2022 iamxdave
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -155,7 +155,7 @@ cd StockSearcher
 
 > http://www.apache.org/licenses/LICENSE-2.0
 
-<p> 
+<p align="justify"> 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
