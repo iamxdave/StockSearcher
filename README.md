@@ -138,8 +138,9 @@ cd StockSearcher
 <!-- CONTRIBUTING -->
 ## Contributing :heart:
 
- Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
+<p>
+ Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are <b>greatly appreciated</b>.
+</p>
 
 <br/>
 
