@@ -112,9 +112,9 @@ cd StockSearcher
 <!-- VISUALIZATION AND GUIDE -->
 ## Visualization :camera: with a guide 📙
 
-  _Website redirect the user on start to the home page containing sideabar and a navbar with links to log in and to my Github profile._
+  _Website redirect the user on start to the home page containing sideabar and a navbar with links._
 
-![Home](https://user-images.githubusercontent.com/74014874/177059896-fdf78d1f-d73a-4b1f-9713-3db8c2f75351.png)
+![Home](https://github.com/iamxdave/StockSearcher/assets/74014874/25d67621-f717-4bcc-a9ce-08056bf928a0)
 
   _There are also images for register and login redirects._
   
